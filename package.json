@@ -1,16 +1,17 @@
 {
-  "name": "uri-plugin-template",
-  "description": "URI Plugin Template",
+  "name": "uri-courses-calculator",
+  "description": "URI Courses Calculator",
   "version": "0.1.0",
   "homepage": "https://www.uri.edu",
-  "repository": "https://github.com/uriweb/uri-plugin-template",
-  "docs": "https://github.com/uriweb/uri-plugin-template#readme",
+  "repository": "https://github.com/uriweb/uri-courses-calculator",
+  "docs": "https://github.com/uriweb/uri-courses-calculator#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "University of Rhode Island",
   "humans": [
-    "Brandon Fuller <bjcfuller@uri.edu>"
+    "Brandon Fuller <bjcfuller@uri.edu>",
+    "Alexandra Gauss <alexandra_gauss@uri.edu>"
   ],
   "license": "GPL-3.0",
   "licenseURI": "http://www.gnu.org/licenses/gpl.html",
