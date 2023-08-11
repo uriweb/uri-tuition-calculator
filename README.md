@@ -38,8 +38,7 @@ Finally, don't forget to update this readme.
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/77712193bd8643f88fad1fbdc8a02c87)](https://www.codacy.com/app/uriweb/uri-plugin-template?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=uriweb/uri-plugin-template&amp;utm_campaign=Badge_Grade)
 [![devDependencies Status](https://david-dm.org/uriweb/uri-plugin-template/dev-status.svg)](https://david-dm.org/uriweb/uri-plugin-template?type=dev)
 
-URI Plugin Template  
-A base template for building WordPress plugins with gulp, PHP Code Sniffer, and Travis CI.
+
 
 Contributors: Brandon Fuller  
 Tags: plugins  
