@@ -45,6 +45,7 @@
     ]
   },
   "dependencies": {
+    "papaparse": "^5.4.1",
     "sass": "^1.64.2"
   }
 }
