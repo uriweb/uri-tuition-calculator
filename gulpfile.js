@@ -77,7 +77,7 @@ gulp.task('version', version);
 
 function version(done) {
 
-	gulp.src('./uri-courses-calculator.php')
+	gulp.src('./uri-tuition-calculator.php')
 		.pipe(replace({
 			patterns: [{
 				match: /Version:\s([^\n\r]*)/,

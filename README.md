@@ -1,6 +1,6 @@
-# URI Courses Calculator
+# URI Tuition Calculator
 
-The URI Courses Calculator brings in tuition and fee data for courses via a Google spreadsheet and calculates an estimated cost.
+The URI Tuition Calculator brings in tuition and fee data for courses via a Google spreadsheet and calculates an estimated cost.
 
 
 
