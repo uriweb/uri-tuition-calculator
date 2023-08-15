@@ -28,5 +28,14 @@ function uri_tuition_calculator_enqueues() {
 	wp_register_script( 'uri-tuition-calculator-js', plugins_url( '/js/script.built.js', __FILE__ ) );
 	wp_enqueue_script( 'uri-tuition-calculator-js' );
 
+	$spreadsheet = get_option( 'uri_tuition_calculator_spreadsheet' );
+	wp_localize_script(
+		'uri-tuition-calculator-js',
+	   'spreadsheet',
+	   array(
+		   'text' => $spreadsheet,
+	   )
+	   );
+
 }
 add_action( 'wp_enqueue_scripts', 'uri_tuition_calculator_enqueues' );
