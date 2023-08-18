@@ -21,7 +21,7 @@ define( 'URI_TUITION_CALCULATOR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'URI_TUITION_CALCULATOR_URL', str_replace( '/assets', '/', plugins_url( 'assets', __FILE__ ) ) );
 
 // Include the admin settings screen
-include_once( URI_TUITION_CALCULATOR_PATH . 'uri-tuition-calculator-settings.php' );
+include_once( URI_TUITION_CALCULATOR_PATH . 'inc/uri-tuition-calculator-settings.php' );
 
 /**
  * Include css and js
