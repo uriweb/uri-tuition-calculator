@@ -6,23 +6,23 @@
  * * @package uri-tuition-calculator
  */
 
- ?>
+?>
 
  <div class="uri-tuition-calculator">
 <h2 class="tuition-calc-header">Tuition and Fees Calculator</h2>
 
 <!--SELECT RESIDENCY STATUS-->
-<label>Residency</label>
+<label id="residency">Residency</label>
    <select id="resi">
-      <option disabled selected value="disabled">--</option>
-      <option value="instate">In State</option>
-      <option value="regional">Regional</option>
-      <option value="out-of-state">Out of State</option>
+	  <option disabled selected value="disabled">--</option>
+	  <option value="instate">In State</option>
+	  <option value="regional">Regional</option>
+	  <option value="out-of-state">Out of State</option>
    </select>
 
    <!--ADD COURSES-->
    <div class="courses">
-   <label>Select Courses</label><br>
+   <label id="selectcourses">Select Courses</label><br>
    <div id="courseoption1">
    <select id="courseNumber" name="courseNumber">
    </select>
