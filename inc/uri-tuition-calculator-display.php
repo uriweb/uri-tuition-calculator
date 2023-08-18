@@ -1,5 +1,4 @@
 <?php
-
 /**
  * URI TUITION CALCULATOR DISPLAY TEMPLATE
  *
