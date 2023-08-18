@@ -9,7 +9,7 @@
   * Create a shortcode for displaying calculator.
   */
 
-function uri_tuition_calculator_shortcode ( $attributes ) {
+function uri_tuition_calculator_shortcode( $attributes ) {
 
 	$attributes = shortcode_atts(
 		 array(
@@ -20,7 +20,7 @@ function uri_tuition_calculator_shortcode ( $attributes ) {
 		$shortcode
 		);
 
-ob_start();
+	ob_start();
 		include 'uri-tuition-calculator-display.php';
 		ob_end_flush();
 }
