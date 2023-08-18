@@ -23,8 +23,7 @@ define( 'URI_TUITION_CALCULATOR_URL', str_replace( '/assets', '/', plugins_url( 
 // Include the admin settings screen
 include_once( URI_TUITION_CALCULATOR_PATH . 'inc/uri-tuition-calculator-settings.php' );
 
-// Include shortcodes
-include( URI_TUITION_CALCULATOR_PATH . 'inc/uri-tuition-calculator-shortcodes.php' );
+
 
 /**
  * Include css and js
@@ -48,3 +47,6 @@ function uri_tuition_calculator_enqueues() {
 
 }
 add_action( 'wp_enqueue_scripts', 'uri_tuition_calculator_enqueues' );
+
+// Include shortcodes
+include( URI_TUITION_CALCULATOR_PATH . 'inc/uri-tuition-calculator-shortcodes.php' );
