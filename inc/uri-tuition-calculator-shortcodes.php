@@ -9,16 +9,19 @@
   * Create a shortcode for displaying calculator.
   */
 
-function uri_tuition_calculator_shortcode ($attributes) {
- 
-// default attributes
-$attributes = shortcode_atts( array(
-    'before' => '<div class="uri-tuition-calculator">',
-    'after' => '</div>',
-), $attributes, $shortcode );
+function uri_tuition_calculator_shortcode ( $attributes ) {
+
+	$attributes = shortcode_atts(
+		 array(
+			 'width' => '',
+			 'height' => '',
+		 ),
+		$attributes,
+		$shortcode
+		);
 
 ob_start();
-		include 'inc/uri-tuition-calculator-display.php';
+		include 'uri-tuition-calculator-display.php';
 		ob_end_flush();
 }
 
