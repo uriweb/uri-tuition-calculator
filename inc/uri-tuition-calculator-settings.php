@@ -9,7 +9,6 @@
 /**
  * Register settings
  */
-
 function uri_tuition_calculator_register_settings() {
 
 	register_setting(
