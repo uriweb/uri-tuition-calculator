@@ -5,7 +5,7 @@
  * Description: A calculator for course tuition and fees
  * Version: 0.1.0
  * Author: URI Web Communications
- * Author URI: https://today.uri.edu/
+ * Author URI: https://www.uri.edu/
  *
  * @author: Brandon Fuller <bjcfuller@uri.edu>
  * @author: Alexandra Gauss <alexandra_gauss@uri.edu>
@@ -16,6 +16,12 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
+
+define( 'URI_TUITION_CALCULATOR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'URI_TUITION_CALCULATOR_URL', str_replace( '/assets', '/', plugins_url( 'assets', __FILE__ ) ) );
+
+// Include the admin settings screen
+include_once( URI_TUITION_CALCULATOR_PATH . 'uri-tuition-calculator-settings.php' );
 
 /**
  * Include css and js
