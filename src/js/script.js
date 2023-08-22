@@ -12,21 +12,25 @@
 	} );
 
 	function uriTuitionCalcInit() {
-		let url = spreadsheet.text;
+		/*
+		const urlSpreadsheet = spreadsheet.text,
+			//set empty array to collect courses selected from dropdown
+			selectedCourses = [],
+			//set empty array to collect selected courses' data sets
+			courseDataSet = [];
+			*/
 
-		//set empty array to collect courses selected from dropdown
-		let selectedCourses = [];
-
-		//set empty array to collect selected courses' data sets
-		let courseDataSet = [];
+		parseData( spreadsheet.text, doStuff );
 
 		function parseData( url, courseData ) {
+			// eslint-disable-next-line no-undef
 			Papa.parse( url, {
 				download: true,
 				header: true,
 				dynamicTyping: true,
 				complete( results ) {
 					courseData( results );
+					console.log( results );
 				},
 			}
 			);
@@ -39,13 +43,8 @@
 		// eslint-disable-next-line no-undef
 		csvData = data.data;
 
-		let options = '';
+		//let options = '';
 		let selectOptions = '<option disabled selected value>--</option>';
-		coursesList.map( ( op, i ) => {
-			options += `<option value="${ op }" id="${ i }"style="border-radius: 5px;"">${ op }</option>`;
-		} );
-		document.getElementById( 'courseNumber' ).innerHTML = selectOptions + options;
+		document.getElementById( 'courseNumber' ).innerHTML = selectOptions;
 	}
-
-	parseData( url, doStuff );
 }() );
