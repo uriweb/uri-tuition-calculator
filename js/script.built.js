@@ -1,11 +1,1 @@
-/**
- * SCRIPTS
- *
- * @package uri-plugin-template
- */
-
-( function() {
-
-	/* Do something on page load */
-
-})();
+!function(){"use strict";window.addEventListener("load",(function(){spreadsheet.text})),parseData(url,(function(e){coursesList=e.data.map((({Course:e})=>e)),csvData=e.data;let t="";coursesList.map(((e,o)=>{t+=`<option value="${e}" id="${o}"style="border-radius: 5px;"">${e}</option>`})),document.getElementById("courseNumber").innerHTML="<option disabled selected value>--</option>"+t}))}();
