@@ -8,7 +8,6 @@
  /**
   * Create a shortcode for displaying calculator.
   */
-
 function uri_tuition_calculator_shortcode( $attributes ) {
 
 	$attributes = shortcode_atts(

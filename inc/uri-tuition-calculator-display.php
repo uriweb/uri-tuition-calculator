@@ -2,7 +2,7 @@
 /**
  * URI TUITION CALCULATOR DISPLAY TEMPLATE
  *
- * * @package uri-tuition-calculator
+ * @package uri-tuition-calculator
  */
 
 ?>
