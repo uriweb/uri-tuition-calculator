@@ -1,7 +1,9 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-mixed-spaces-and-tabs */
 /**
  * SCRIPTS
  *
- * @package uri-plugin-template
+ * @package
  */
 
 ( function() {
@@ -12,25 +14,22 @@
 	} );
 
 	function uriTuitionCalcInit() {
-		/*
-		const urlSpreadsheet = spreadsheet.text,
+		const urlSpreadsheet = spreadsheet.text;
 			//set empty array to collect courses selected from dropdown
-			selectedCourses = [],
+			//selectedCourses = [],
 			//set empty array to collect selected courses' data sets
-			courseDataSet = [];
-			*/
+			//courseDataSet = [];
+			//let coursesList = [];
 
-		parseData( spreadsheet.text, doStuff );
+		parseData( urlSpreadsheet, doStuff );
 
-		function parseData( url, courseData ) {
-			// eslint-disable-next-line no-undef
-			Papa.parse( url, {
+		function parseData( urlSpreadsheet, courseData ) {
+			Papa.parse( urlSpreadsheet, {
 				download: true,
 				header: true,
-				dynamicTyping: true,
+				dynamicTyping: true, //convert string to numbers
 				complete( results ) {
 					courseData( results );
-					console.log( results );
 				},
 			}
 			);
@@ -38,13 +37,20 @@
 	}
 
 	function doStuff( data ) {
+	//Populate dropdowns
+		const coursesList = data.data.map( ( { Course } ) => Course );
 		// eslint-disable-next-line no-undef
-		coursesList = data.data.map( ( { Course } ) => Course );
-		// eslint-disable-next-line no-undef
-		csvData = data.data;
+		const csvData = data.data;
+		const dropDownIds = [ 'courseNumber', 'courseNumber2', 'courseNumber3', 'courseNumber4' ];
 
-		//let options = '';
-		let selectOptions = '<option disabled selected value>--</option>';
-		document.getElementById( 'courseNumber' ).innerHTML = selectOptions;
+		let options = '';
+		const selectOptions = '<option disabled selected value>--</option>';
+		// eslint-disable-next-line array-callback-return
+		coursesList.map( ( op, i ) => {
+			options += `<option value="${ op }" id="${ i }"style="border-radius: 5px;"">${ op }</option>`;
+		 } );
+		 for ( let i = 0; i < dropDownIds.length; i++ ) {
+			document.getElementById( dropDownIds[ i ] ).innerHTML = selectOptions + options;
+		 }
 	}
 }() );
