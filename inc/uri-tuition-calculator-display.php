@@ -6,6 +6,7 @@
  */
 
 ?>
+<script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
 
  <div class="uri-tuition-calculator">
 <h2 class="tuition-calc-header">Tuition and Fees Calculator</h2>
