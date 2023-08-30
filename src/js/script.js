@@ -71,12 +71,27 @@
 			//Set empty array to collect selected course cost data
 			const courseDataSet = [];
 			console.log( 'Drop Down Values: ' + dropDownValues );
+			if (dropDownValues[0].length > 0) {
+				console.log('dropdown1 is not empty');
+			};
+
+			const selectedCourses = dropDownValues.filter( checkForValue );
+			function checkForValue( course ) {
+				return course.length === 0;
+			}
+			for ( const x of dropDownValues ) {
+				if ( x.length > 0 ) {
+					selectedCourses.push( x );
+				}
+			}
+			console.log( 'selectedCourses: ' + selectedCourses );
 
 			//For each course selected, get cost data and add to courseDataSet array
 			for ( const val of dropDownValues ) {
 				const courseResults = csvData.filter( function( item ) {
 				   return item.Course === val;
 				} );
+
 				courseDataSet.push( courseResults );
 			   }
 			   console.log( 'CourseDataSet: ' + courseDataSet );
