@@ -70,19 +70,13 @@
 			const dropDownValues = [ courseNumber.value, courseNumber2.value, courseNumber3.value, courseNumber4.value ];
 			//Set empty array to collect selected course cost data
 			const courseDataSet = [];
+			//const selectedCourses = [];
 			console.log( 'Drop Down Values: ' + dropDownValues );
-			if (dropDownValues[0].length > 0) {
-				console.log('dropdown1 is not empty');
-			};
 
+			//Filter dropDownValues array to only selected courses from dropdowns
 			const selectedCourses = dropDownValues.filter( checkForValue );
 			function checkForValue( course ) {
-				return course.length === 0;
-			}
-			for ( const x of dropDownValues ) {
-				if ( x.length > 0 ) {
-					selectedCourses.push( x );
-				}
+				return course.length > 0;
 			}
 			console.log( 'selectedCourses: ' + selectedCourses );
 
@@ -112,7 +106,7 @@
 			}
 
 			//Display text that shows the courses selected
-			document.querySelector( '.yourCourses' ).textContent = 'Estimated Costs for: ' + dropDownValues.join( ' & ' );
+			document.querySelector( '.yourCourses' ).textContent = 'Estimated Costs for: ' + selectedCourses.join( ' & ' );
 
 			//Loop through the courses selected and add their cost data
 			for ( let i = 0; i < courseDataSet.length; i++ ) {
