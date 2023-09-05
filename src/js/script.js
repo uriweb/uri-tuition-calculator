@@ -55,6 +55,11 @@
 			document.getElementById( dropDownIds[ i ] ).innerHTML = selectOptions + options;
 		 }
 
+		 //Add additional course dropdown when button is clicked
+		 document.getElementById( 'addCourse' ).addEventListener( 'click', function() {
+			document.getElementById( 'courseoption2' ).style.display = 'block';
+		} );
+
 		 //Calculate cost when button is clicked
 		 document.getElementById( 'calc' ).addEventListener( 'click', checkFirst );
 
@@ -139,6 +144,28 @@
 			document.getElementById( 'student-act-fee' ).textContent = 'Student Activity Fee: $' + studentActFee + '.00';
 			document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
 			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
+
+			//create total array
+			const totalArray = [ techFee, registrationFee, studentActFee, transcriptFee, documentFee, courseFee ];
+			if ( document.getElementById( 'resi' ).value == 'instate' ) {
+totalArray.push( inStateT );
+}
+			if ( document.getElementById( 'resi' ).value == 'regional' ) {
+totalArray.push( regTuition );
+}
+			if ( document.getElementById( 'resi' ).value == 'out-of-state' ) {
+totalArray.push( oos );
+}
+
+			console.log( 'Total Array:' + totalArray );
+			//Display total
+			document.getElementById( 'total' ).style.display = 'block';
+			document.getElementById( 'total' ).textContent = 'Estimated Total: $' + totalArray.reduce( totalFinal ).toLocaleString() + '.00';
+
+			//Add total array elements together
+			function totalFinal( total, num ) {
+			   return total + num;
+			}
 		 }
 	}
 }() );
