@@ -9,48 +9,51 @@
 <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
 
  <div class="uri-tuition-calculator">
-<h2 class="tuition-calc-header">Tuition and Fees Calculator</h2>
+<h2 class="tuition-calc-header"><?php print $attributes['title']; ?></h2>
 
 <!--SELECT RESIDENCY STATUS-->
-<label id="residency">Residency</label>
+<label for ="resi" id="residency">Residency</label>
    <select id="resi">
-	  <option disabled selected value="disabled">--</option>
+	  <option selected value="disabled">--</option>
 	  <option value="instate">In State</option>
 	  <option value="regional">Regional</option>
 	  <option value="out-of-state">Out of State</option>
    </select>
+</label>
 
    <!--ADD COURSES-->
    <div class="courses">
-   <label id="selectcourses">Select Courses</label><br>
+	  <fieldset>
+   <legend id="selectcourses">Select Courses</legend>
    <div id="courseoption1">
-   <select id="courseNumber" name="courseNumber">
+   <select id="courseNumber" name="courseNumber" aria-labelledby="selectcourses">
    </select>
-   <input type="" class="addCourse" value="+ Add another course"/>
 </div>
 
    <div id="courseoption2">
-   <select id="courseNumber2" name="courseNumber2"></select>
-   <input type="" class="addCourse" value="+ Add another course"/>
+   <select id="courseNumber2" name="courseNumber2" aria-labelledby="selectcourses"></select>
 </div>
 
    <div id="courseoption3">
-   <select id="courseNumber3" name="courseNumber3"></select>
-   <input type="" class="addCourse" value="+ Add another course"/>
+   <select id="courseNumber3" name="courseNumber3" aria-labelledby="selectcourses"></select>
 </div>
 
    <div id="courseoption4">
-   <select id="courseNumber4" name="courseNumber4"></select>
+   <select id="courseNumber4" name="courseNumber4" aria-labelledby="selectcourses"></select>
+   </fieldset>
+   <input type="button" id="addCourse" value="+ Add another course">
+   
 </div>
 </div><!--END ADD COURSES-->
 
 <!--FEE QUETIONS-->
    <div id="q2">
-   <input type="checkbox" id="firstclass">This is the first time I am enrolling in classes at URI.
+   <input type="checkbox" id="firstclass">
+	  <label for="firstclass">This is the first time I am enrolling in classes at URI.</label>
    </div>
    <div id="q3">
-   <input type="checkbox" id="matriculating">  I am officially matriculating into URI. <br>
-<br>
+   <input type="checkbox" id="matriculating">
+	  <label for="matriculating">I am officially matriculating into URI.</label>
 </div><!--END FEE QUESTIONS-->
 
 <!--BUTTONS-->
