@@ -9,6 +9,10 @@
     margin: 1rem;
 }
 
+#courseoption2, #courseoption3, #courseoption4 {
+    display: none;
+}
+
 .addCourse {
     border: none;
     font-size: 12pt;
@@ -39,5 +43,27 @@
     &:hover {
         cursor: pointer;
     }
+}
+
+.calculations p {
+    margin: 0;
+}
+
+#total {
+    display: none;
+    outline:none;padding: 1rem;border-radius: 5px; border: none; box-shadow: 0 0 10px rgb(202, 202, 202);max-width: 15rem;
+    font-size: larger;
+   }
+
+#addCourse {
+    background-color: #fafafa;
+    color: rgb(8, 8, 176);
+    border: solid rgb(8, 8, 176) 1px;
+    padding: .6rem;
+    box-shadow: 0 0 10px rgb(202, 202, 202);
+
+    &:hover{
+        cursor: pointer;
+ }
 }
 
