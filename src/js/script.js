@@ -55,9 +55,22 @@
 			document.getElementById( dropDownIds[ i ] ).innerHTML = selectOptions + options;
 		 }
 
-		 //Add additional course dropdown when button is clicked
+		 //Add additional course dropdowns when button is clicked
 		 document.getElementById( 'addCourse' ).addEventListener( 'click', function() {
-			document.getElementById( 'courseoption2' ).style.display = 'block';
+			if ( document.getElementById( 'courseoption3' ).style.display == 'block' ) {
+				document.getElementById( 'courseoption4' ).style.display = 'block';
+				document.getElementById( 'addCourse' ).style.display = 'none';
+			}
+			if ( document.getElementById( 'courseoption2' ).style.display == 'block' ) {
+				document.getElementById( 'courseoption3' ).style.display = 'block';
+			} else {
+				document.getElementById( 'courseoption2' ).style.display = 'block';
+			}
+		} );
+
+		// Reveal 2nd radio question if first is checked
+		document.getElementById( 'q2' ).addEventListener( 'change', function() {
+			document.getElementById( 'q3' ).style.display = 'block';
 		} );
 
 		 //Calculate cost when button is clicked
@@ -148,14 +161,14 @@
 			//create total array
 			const totalArray = [ techFee, registrationFee, studentActFee, transcriptFee, documentFee, courseFee ];
 			if ( document.getElementById( 'resi' ).value == 'instate' ) {
-totalArray.push( inStateT );
-}
+				totalArray.push( inStateT );
+			}
 			if ( document.getElementById( 'resi' ).value == 'regional' ) {
-totalArray.push( regTuition );
-}
+				totalArray.push( regTuition );
+			}
 			if ( document.getElementById( 'resi' ).value == 'out-of-state' ) {
-totalArray.push( oos );
-}
+				totalArray.push( oos );
+			}
 
 			console.log( 'Total Array:' + totalArray );
 			//Display total
@@ -166,6 +179,17 @@ totalArray.push( oos );
 			function totalFinal( total, num ) {
 			   return total + num;
 			}
+
+			//Refresh calculator with button
+			document.getElementById( 'reload' ).addEventListener( 'click', resetCalc );
+
+			function resetCalc() {
+			   location.reload();
+			}
+
+			//Replace "Calculate Cost" button with "Reset Calculator"
+			document.getElementById( 'reload' ).style.display = 'block';
+			document.getElementById( 'calc' ).style.display = 'none';
 		 }
 	}
 }() );
