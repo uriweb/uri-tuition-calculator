@@ -12,8 +12,6 @@ function uri_tuition_calculator_shortcode( $attributes ) {
 
 	$attributes = shortcode_atts(
 		 array(
-			 'width' => '',
-			 'height' => '',
 			 'title' => 'Tuition & Fees Calculator',
 		 ),
 		$attributes,
@@ -22,7 +20,6 @@ function uri_tuition_calculator_shortcode( $attributes ) {
 
 	ob_start();
 		include 'uri-tuition-calculator-display.php';
-		// ob_end_flush();
 		return ob_get_clean();
 
 }
