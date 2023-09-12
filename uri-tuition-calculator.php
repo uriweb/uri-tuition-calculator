@@ -44,7 +44,14 @@ function uri_tuition_calculator_enqueues() {
 		   'text' => $spreadsheet,
 	   )
 	   );
-
+	   $term = get_option( 'uri_tuition_calculator_term' );
+	wp_localize_script(
+		'uri-tuition-calculator-js',
+	   'term',
+	   array(
+		   'text' => $term,
+	   )
+	   );
 }
 add_action( 'wp_enqueue_scripts', 'uri_tuition_calculator_enqueues' );
 
