@@ -57,18 +57,20 @@
 </div><!--END FEE QUESTIONS-->
 
 <!--BUTTONS-->
+<div id="buttons">
 
 <input type="button" id="calc" value ="Calculate Cost">
 
 <input type="button" id="reload" value ="Reset Calculator">
+</div>
 
 <!--END BUTTONS-->
 
 
    <!--CALC CONTENT-->
    <div class="calculations">
-   <p class="yourCourses" style="font-weight:bold;"></p>
-   <hr id="divide">
+   <p class="yourCourses"></p>
+   <!--<hr id="divide"> -->
    
    <p id="instateTuition"></p>
    <p id="regionalTuition"></p>
