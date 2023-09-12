@@ -12,7 +12,7 @@
 <h2 class="tuition-calc-header"><?php print $attributes['title']; ?></h2>
 
 <!--SELECT RESIDENCY STATUS-->
-<label for ="resi" id="residency">Residency</label>
+<label for ="resi" id="residency">Residency</label><br>
    <select id="resi">
 	  <option selected value="disabled">--</option>
 	  <option value="instate">In State</option>
