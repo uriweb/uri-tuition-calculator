@@ -18,10 +18,6 @@
 
 	function uriTuitionCalcInit() {
 		const urlSpreadsheet = spreadsheet.text;
-		//set empty array to collect courses selected from dropdown
-		//selectedCourses = [],
-		//set empty array to collect selected courses' data sets
-		//let coursesList = [];
 
 		parseData( urlSpreadsheet, doStuff );
 
@@ -41,13 +37,11 @@
 	function doStuff( data ) {
 	//Populate dropdowns
 		const coursesList = data.data.map( ( { Course } ) => Course );
-		// eslint-disable-next-line no-undef
 		const csvData = data.data;
 		const dropDownIds = [ 'courseNumber', 'courseNumber2', 'courseNumber3', 'courseNumber4' ];
 
 		let options = '';
 		const selectOptions = '<option disabled selected value>--</option>';
-		// eslint-disable-next-line array-callback-return
 		coursesList.map( ( op, i ) => {
 			options += `<option value="${ op }" id="${ i }">${ op }</option>`;
 		 } );
@@ -68,10 +62,13 @@
 			}
 		} );
 
+		// If Summer term, then display additional question
+		if ( term.text == 'Summer' ) {
 		// Reveal 2nd radio question if first is checked
-		document.getElementById( 'q2' ).addEventListener( 'change', function() {
-			document.getElementById( 'q3' ).style.display = 'block';
-		} );
+			document.getElementById( 'q2' ).addEventListener( 'change', function() {
+				document.getElementById( 'q3' ).style.display = 'block';
+			} );
+		}
 
 		 //Calculate cost when button is clicked
 		 document.getElementById( 'calc' ).addEventListener( 'click', checkFirst );
@@ -116,8 +113,11 @@
 				studentActFee = 0,
 				transcriptFee = 0,
 				documentFee = 0;
-			if ( document.getElementById( 'firstclass' ).checked ) {
+			if ( document.getElementById( 'firstclass' ).checked && term.text == 'Summer' ) {
 				registrationFee = 30; studentActFee = 20; transcriptFee = 50;
+			}
+			if ( document.getElementById( 'firstclass' ).checked && term.text == 'JTerm' ) {
+				transcriptFee = 50;
 			}
 			if ( document.getElementById( 'matriculating' ).checked ) {
 				documentFee = 115;
@@ -142,7 +142,6 @@
 				console.log( 'Instate:' + inStateT );
 			}
 			//Display breakdown of cost
-			document.getElementById( 'techFee' ).textContent = 'Technology Fee: $' + techFee + '.00';
 			if ( document.getElementById( 'resi' ).value == 'instate' ) {
 				document.getElementById( 'instateTuition' ).textContent = 'In-State Tuition: $' + inStateT.toLocaleString() + '.00';
 			}
@@ -152,11 +151,18 @@
 			if ( document.getElementById( 'resi' ).value == 'out-of-state' ) {
 				document.getElementById( 'out-of-state' ).textContent = 'Out-of-State Tuition: $' + oos.toLocaleString() + '.00';
 			}
-			document.getElementById( 'registration-fee' ).textContent = 'Registration Fee: $' + registrationFee + '.00';
-			document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
-			document.getElementById( 'student-act-fee' ).textContent = 'Student Activity Fee: $' + studentActFee + '.00';
-			document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
-			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
+			if ( term.text == 'Summer' ) {
+				document.getElementById( 'registration-fee' ).textContent = 'Registration Fee: $' + registrationFee + '.00';
+				document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
+				document.getElementById( 'student-act-fee' ).textContent = 'Student Activity Fee: $' + studentActFee + '.00';
+				document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
+				document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
+				document.getElementById( 'techFee' ).textContent = 'Technology Fee: $' + techFee + '.00';
+			}
+			if ( term.text == 'JTerm' ) {
+				document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
+			}
+
 
 			//create total array
 			const totalArray = [ techFee, registrationFee, studentActFee, transcriptFee, documentFee, courseFee ];
