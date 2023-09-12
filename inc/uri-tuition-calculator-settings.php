@@ -17,6 +17,11 @@ function uri_tuition_calculator_register_settings() {
 	   'uri_tuition_calculator_sanitize_url'
 	);
 
+	register_setting(
+		'uri_tuition_calculator',
+		'uri_tuition_calculator_term',
+	 );
+
 	add_settings_section(
 	   'uri_tuition_calculator_settings',
 	   __( 'URI Tuition Calculator Settings', 'uri' ),
@@ -36,6 +41,18 @@ function uri_tuition_calculator_register_settings() {
 		  'class' => 'uri_tuition_calculator_row',
 	  )
 	  );
+
+	add_settings_field(
+		'uri_tuition_calculator_term', // id: as of WP 4.6 this value is used only internally
+	   __( 'Term', 'uri' ), // title
+	   'uri_tuition_calculator_term_field', // callback
+	   'uri_tuition_calculator', // page
+	   'uri_tuition_calculator_settings', // section
+	   array( // args
+		   'label_for' => 'uri-tuition-calculator-field-term',
+		   // 'class' => 'uri_tuition_calculator_row',
+	   )
+	   );
 }
 
  add_action( 'admin_init', 'uri_tuition_calculator_register_settings' );
@@ -120,4 +137,21 @@ function uri_tuition_calculator_spreadsheet_field( $args ) {
 			?>
 		</p>
 	<?php
+}
+
+function uri_tuition_calculator_term_field( $args ) {
+	// get the value of the setting we've registered with register_setting()
+	$setting = get_option( 'uri_tuition_calculator_term' );
+	// output the field
+	?>
+	<input type="text" class="regular-text" aria-describedby="uri-tuition-calculator-field-term" name="uri_tuition_calculator_term" id="uri-tuition-calculator-field-term" value="<?php print ( $setting !== false ) ? esc_attr( $setting ) : ''; ?>">
+	<p class="uri-tuition-calculator-field-term">
+		<?php
+			esc_html_e( 'Summer', 'uri' );
+			echo '<br />';
+			esc_html_e( 'JTerm', 'uri' );
+		?>
+	</p>
+	<?php
+
 }
