@@ -1,13 +1,78 @@
+/* ==============================
+   COLORS
+   ============================== */
+
+   $lightblue: #c0ddf2;
+   $keaneyblue: #2277b3;
+   $midblue: #30557e;
+   $blue: #002147;
+   $darkblue: #001228;
+   
+   $lightgold: #fefada;
+   $midgold: #ffd453;
+   $gold: #c4960c;
+   
+   $white: #ffffff;
+   $lightgrey: #fafafa;
+   $grey: #dddddd;
+   $midgrey: #999999;
+   $darkgrey: #555555;
+   $black: #000000;
+   
+   $link: #005eff;
+   $linkhover: #003287;
+   
+   $accentblue: #057fd4;
+
+
+/* ==============================
+   FAWNTS
+   ============================== */
+
+   @import url("https://fonts.googleapis.com/css?family=Lato:400,900|Hind:400,600|Rubik:500") all;
+
+   $type-header: 'Lato', 'Hind', Arial, sans-serif;
+   $type-sans: 'Hind', Arial, sans-serif;
+  
+
+   $maxtypewidth: 750px;
+
+
+/* ==============================
+   BOX SHADOW LEVELS
+   ============================== */
+
+// [x-offset y-offset blur-radius color]
+$level1:  0 .1rem .15rem rgba(0,0,0,0.1),
+          0 .1rem .3rem rgba(0,0,0,0.1);
+$level2:  0 .3rem 1rem rgba(0,0,0,0.1),
+          0 .3rem 3rem rgba(0,0,0,0.1);
+$level3:  0 .3rem .5rem rgba(0,0,0,0.2),
+          0 .3rem 2rem rgba(0,0,0,0.2);
+
+
+
+
 /* ======= STYLES ======= */
 
-#courseNumber, #courseNumber2, #courseNumber3, #courseNumber4, #resi, #firstclass, #matriculating {
-    outline: none;
-    padding: 0.4rem;
-    border-radius: 5px; 
-    border: none; 
-    box-shadow: 0 0 10px rgb(202, 202, 202);
-    margin: 1rem;
+select {
+    width: 10rem;
+    box-shadow: $level1;
 }
+
+.select #resi{
+    margin-bottom:0;
+}
+
+#courseNumber, #courseNumber2, #courseNumber3, #courseNumber4, #resi, #firstclass, #matriculating {
+        outline: none;
+        padding: 0.6rem;
+        border-radius: 5px; 
+        border: none; 
+        box-shadow: $level1;
+        margin: 1rem;
+        font-family: $type-sans;
+    }
 
 #courseoption2, #courseoption3, #courseoption4 {
     display: none;
@@ -15,8 +80,8 @@
 
 .addCourse {
     border: none;
-    font-size: 12pt;
-    background-color: #fafafa;
+    font-size: 0.8rem;
+
 
     &hover {
     cursor: pointer;
@@ -26,22 +91,33 @@
 
 #residency, #selectcourses {
     font-weight: bold;
+    padding-left:1em;
 }
 
 #calc, #reload {
-    background-color:rgb(51, 51, 142);
-    color:white;
-    padding: 0.8rem;
-    border-radius: 5px; 
-    border: none; 
-    box-shadow: 0 0 10px rgb(202, 202, 202);
-    margin: 0.8rem; 
-    font-size: 12pt;
-    font-weight: bold;
+    font-family: $type-sans;
+	font-size: .8rem;
+	font-weight: 700;
+	letter-spacing: .1rem;
+	text-transform: uppercase;
+	color: $white;
+	transition: all .2s ease-in-out;
+	text-shadow: none;
+	border-radius: .2rem;
+	transform: translateY(0);
+	border: none;
+	box-shadow: $level1;
+    background-color: $blue;
+    padding: 1rem;
+    width: 100%;
+    max-width: 300px;
 
 
     &:hover {
         cursor: pointer;
+        background: $blue;
+        transform: translateY(-2px);
+        box-shadow: $level3;
     }
 }
 
@@ -50,44 +126,92 @@
  }
 
 .calculations p {
-    margin: 0;
+    margin:0;
+    font-size: 1rem;
+    line-height: 2.5rem;
+    max-width:400px;
+    padding-left:1rem;
 }
+
 
 #total {
     display: none;
-    outline:none;padding: 1rem;border-radius: 5px; border: none; box-shadow: 0 0 10px rgb(202, 202, 202);max-width: 15rem;
+    outline:none;
+    max-width: 400px;
     font-size: larger;
+    padding-left:1rem;
    }
 
 #addCourse {
-    background-color: #fafafa;
-    color: rgb(8, 8, 176);
-    border: solid rgb(8, 8, 176) 1px;
+    background-color:rgba(255, 255, 255, 0);
+    color: $link;
+    border: none;
     padding: .6rem;
-    box-shadow: 0 0 10px rgb(202, 202, 202);
-    margin-top: 20px;
+    font-size: .9rem;
+    
 
     &:hover{
         cursor: pointer;
+        color: $linkhover;
+        text-decoration: underline;
  }
+
 }
 #q2 {
     padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.2rem;
 }
 
 #q3 {
     display: none;
+    padding-bottom: 20px;
+    font-size: 1rem;
 }
 
 .courses {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 #buttons {
     padding-top: 20px;
+    padding-left:1rem;
 }
 
-.yourCourses{
+p.yourCourses{
     font-weight: bold;
-    padding: 40px 0px 20px 15px;
+    font-size: 100%;
+    max-width:400px;
+    line-height:1.8rem;
+    padding-top:2.5rem;
+    padding-bottom:1.25rem;
+    padding-left:1rem;
+}
+
+#registration-fee, #transcript-fee, #student-act-fee, #document-fee, #course-fee, #techFee, #instateTuition, #regionalTuition, #out-of-state{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    max-width:300px;
+    padding-left:1.5em;
+}
+
+
+
+@media (max-width: 1199.98px){ 
+    #residency, #selectcourses, #buttons, .tuition-calc-header, .yourcourses {
+    padding-left:1rem;
+}
+
+    .calculations p {
+    padding-left:1.5rem;
+}
+
+
+}
+
+@media (max-width: 575.98px){ 
+#q2, #q3{
+    display: flex;
+    flex-direction: row;
+}
 }
