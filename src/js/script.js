@@ -41,7 +41,7 @@
 		const dropDownIds = [ 'courseNumber', 'courseNumber2', 'courseNumber3', 'courseNumber4' ];
 
 		let options = '';
-		const selectOptions = '<option disabled selected value>--</option>';
+		const selectOptions = '<option disabled selected value>Select Courses</option>';
 		coursesList.map( ( op, i ) => {
 			options += `<option value="${ op }" id="${ i }">${ op }</option>`;
 		 } );

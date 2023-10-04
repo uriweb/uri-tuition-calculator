@@ -14,7 +14,8 @@
 <!--SELECT RESIDENCY STATUS-->
 <label for ="resi" id="residency">Residency</label><br>
    <select id="resi">
-	  <option selected value="disabled">--</option>
+	  <option selected value="disabled">Select Residency
+	 </option>
 	  <option value="instate">In State</option>
 	  <option value="regional">Regional</option>
 	  <option value="out-of-state">Out of State</option>
@@ -24,7 +25,7 @@
    <!--ADD COURSES-->
    <div class="courses">
 	  <fieldset>
-   <legend id="selectcourses">Select Courses</legend>
+   <legend id="selectcourses">Courses</legend>
    <div id="courseoption1">
    <select id="courseNumber" name="courseNumber" aria-labelledby="selectcourses">
    </select>
@@ -46,7 +47,7 @@
 </div>
 </div><!--END ADD COURSES-->
 
-<!--FEE QUETIONS-->
+<!--FEE QUESTIONS-->
    <div id="q2">
    <input type="checkbox" id="firstclass">
 	  <label for="firstclass">This is the first time I am enrolling in classes at URI.</label>
