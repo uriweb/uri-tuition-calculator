@@ -87,15 +87,14 @@
 		const dropDownValues = [ courseNumber.value, courseNumber2.value, courseNumber3.value, courseNumber4.value ];
 		//Set empty array to collect selected course cost data
 		const courseDataSet = [];
-		//const selectedCourses = [];
-		console.log( 'Drop Down Values: ' + dropDownValues );
+		
 
 		//Filter dropDownValues array to only selected courses from dropdowns
 		const selectedCourses = dropDownValues.filter( checkForValue );
 		function checkForValue( course ) {
 			return course.length > 0;
 		}
-		console.log( 'selectedCourses: ' + selectedCourses );
+		
 
 		//For each course selected, get cost data and add to courseDataSet array
 		for ( const val of dropDownValues ) {
@@ -105,7 +104,7 @@
 
 			courseDataSet.push( courseResults );
 			   }
-			   console.log( 'CourseDataSet: ' + courseDataSet );
+			  
 		let techFee = 0,
 			courseFee = 0,
 			inStateT = 0,
@@ -130,7 +129,6 @@
 
 		//Loop through the courses selected and add their cost data
 		for ( let i = 0; i < courseDataSet.length; i++ ) {
-			console.log( `Sub-array ${ i }: ${ courseDataSet[ i ] }` );
 			for ( let x = 0; x < courseDataSet[ i ].length; x++ ) {
 				techFee += Number( courseDataSet[ i ][ x ][ 'Technology Fee' ] );
 				inStateT += Number( courseDataSet[ i ][ x ][ 'Instate Tuition' ] );
@@ -138,10 +136,6 @@
 				oos += Number( courseDataSet[ i ][ x ][ 'OOS Tuition' ] );
 				courseFee += Number( courseDataSet[ i ][ x ][ 'Course Fee' ] );
 			}
-			console.log( 'Refined Array:' + courseDataSet );
-			console.log( 'Reg Tuition:' + regTuition );
-			console.log( 'Out of State:' + oos );
-			console.log( 'Instate:' + inStateT );
 		}
 		//Display breakdown of cost
 		if ( document.getElementById( 'resi' ).value == 'instate' ) {
@@ -163,6 +157,7 @@
 		}
 		if ( term.text == 'JTerm' ) {
 			document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
+			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
 		}
 
 
@@ -178,7 +173,6 @@
 			totalArray.push( oos );
 		}
 
-		console.log( 'Total Array:' + totalArray );
 		//Display total
 		document.getElementById( 'total' ).style.display = 'block';
 		document.getElementById( 'total' ).textContent = 'Estimated Total: $' + totalArray.reduce( totalFinal ).toLocaleString() + '.00';
