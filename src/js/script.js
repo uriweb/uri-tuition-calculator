@@ -43,8 +43,8 @@
 		let options = '';
 		const selectOptions = '<option disabled selected value>Select Courses</option>';
 		coursesList.map( ( op, i ) => {
-			options += `<option value="${ op }" id="${ i }">${ op }</option>`;
-		 } );
+			return options += `<option value="${ op }" id="${ i }">${ op }</option>`;
+		 }, {} );
 		 for ( let i = 0; i < dropDownIds.length; i++ ) {
 			document.getElementById( dropDownIds[ i ] ).innerHTML = selectOptions + options;
 		 }
@@ -137,6 +137,7 @@
 				courseFee += Number( courseDataSet[ i ][ x ][ 'Course Fee' ] );
 			}
 		}
+
 		//Display breakdown of cost
 		if ( document.getElementById( 'resi' ).value == 'instate' ) {
 			document.getElementById( 'instateTuition' ).textContent = 'In-State Tuition: $' + inStateT.toLocaleString() + '.00';
