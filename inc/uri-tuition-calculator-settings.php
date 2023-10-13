@@ -64,8 +64,8 @@ function uri_tuition_calculator_register_settings() {
   * @see add_settings_section()
   */
 function uri_tuition_calculator_settings_section( $args ) {
-	$intro = 'URI Tuition Calculator calculates course tuition and fees.';
-	echo '<p id="' . esc_attr( $args['id'] ) . '">' . esc_html_e( $intro, 'uri' ) . '</p>';
+	// $intro = 'URI Tuition Calculator calculates course tuition and fees.';
+	echo '<p id="' . esc_attr( $args['id'] ) . '">' . esc_html_e( 'URI Tuition Calculator calculates course tuition and fees.', 'uri' ) . '</p>';
 }
 
 /**
@@ -128,23 +128,27 @@ function uri_tuition_calculator_spreadsheet_field( $args ) {
 	$setting = get_option( 'uri_tuition_calculator_spreadsheet' );
 	// output the field
 	?>
-		<input type="text" class="regular-text" aria-describedby="uri-tuition-calculator-field-spreadsheet" name="uri_tuition_calculator_spreadsheet" id="uri-tuition-calculator-field-spreadsheet" value="<?php print ( $setting !== false ) ? esc_attr( $setting ) : ''; ?>">
+		<input type="text" class="regular-text" aria-describedby="uri-tuition-calculator-field-spreadsheet" name="uri_tuition_calculator_spreadsheet" id="uri-tuition-calculator-field-spreadsheet" value="<?php print ( false !== $setting ) ? esc_attr( $setting ) : ''; ?>">
 		<p class="uri-tuition-calculator-field-spreadsheet">
 			<?php
 				esc_html_e( 'Provide the URL for the spreadsheet.', 'uri' );
 				echo '<br />';
-				esc_html_e( 'For example: https://docs.google.com/spreadsheets/d/[spreadsheetID]/pub?output=csv', 'uri' );
+				esc_html_e( 'For example: https://docs.google.com/spreadsheets/d/[spreadsheetID]/gviz/tq?tqx=out:csv&sheet=[SheetName]', 'uri' );
 			?>
 		</p>
 	<?php
 }
 
+/**
+ * Field callback
+ * outputs the field
+ */
 function uri_tuition_calculator_term_field( $args ) {
 	// get the value of the setting we've registered with register_setting()
 	$setting = get_option( 'uri_tuition_calculator_term' );
 	// output the field
 	?>
-	<input type="text" class="regular-text" aria-describedby="uri-tuition-calculator-field-term" name="uri_tuition_calculator_term" id="uri-tuition-calculator-field-term" value="<?php print ( $setting !== false ) ? esc_attr( $setting ) : ''; ?>">
+	<input type="text" class="regular-text" aria-describedby="uri-tuition-calculator-field-term" name="uri_tuition_calculator_term" id="uri-tuition-calculator-field-term" value="<?php print ( false !== $setting ) ? esc_attr( $setting ) : ''; ?>">
 	<p class="uri-tuition-calculator-field-term">
 		<?php
 			esc_html_e( 'Summer', 'uri' );
