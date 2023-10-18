@@ -1,0 +1,17 @@
+{
+    "name": "uriweb/uri-tuition-calculator",
+    "type":  "wordpress-plugin",
+    "description": "URI Tuition Calculator is a Wordpress plugin that calculates the estimated cost of Summer and J-Term courses.",
+    "authors": [
+        {
+            "name": "URI Web Communications",
+            "email": "web-group@uri.edu",
+            "homepage": "https://github.com/uriweb"
+        }
+    ],
+    "homepage": "https://www.uri.edu",
+    "license": "GPL-3.0-only",
+    "require": {
+        "php": ">=7.4"
+    }
+}
