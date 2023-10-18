@@ -9,6 +9,7 @@
  *
  * @author: Brandon Fuller <bjcfuller@uri.edu>
  * @author: Alexandra Gauss <alexandra_gauss@uri.edu>
+ * @author: Sarah Pucino <sarah.pucino@uri.edu>
  * @package uri-tuition-calculator
  */
 

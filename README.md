@@ -3,10 +3,6 @@
 The URI Tuition Calculator brings in tuition and fee data for courses via a Google spreadsheet and calculates an estimated cost.
 
 
-
-**For a more thorough install, and for PHP Code Sniffer support, head over to [SETUP.md](https://github.com/uriweb/uri-plugin-template/blob/master/SETUP.md).**
-
-
 ## Plugin Details
 
 [![Master Build Status](https://travis-ci.com/uriweb/uri-plugin-template.svg?branch=master "Master build status")](https://travis-ci.com/uriweb/uri-plugin-template)
@@ -16,7 +12,7 @@ The URI Tuition Calculator brings in tuition and fee data for courses via a Goog
 
 
 
-Contributors: Brandon Fuller, Alexandra Gauss  
+Contributors: Brandon Fuller, Alexandra Gauss, Sarah Pucino
 Tags: plugins  
 Requires at least: 4.0  
 Tested up to: 5.7  
