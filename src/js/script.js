@@ -88,12 +88,16 @@
 		const dropDownValues = [ courseNumber.value, courseNumber2.value, courseNumber3.value, courseNumber4.value ];
 		//Set empty array to collect selected course cost data
 		const courseDataSet = [];
-		//hook up analystics
+		//hook up analytics
 		const e = {
 			event: 'tuitionCalculatorSubmit',
-			term: term.text,
+			term: term.text.toLowerCase(),
 			courses: dropDownValues,
+			residency: document.getElementById( 'resi' ).value,
+			firstclass: document.getElementById( 'firstclass' ).checked,
+			matriculating: document.getElementById( 'matriculating' ).checked
 		};
+		//console.log(e);
 		window.dataLayer = window.dataLayer || [];
 		window.dataLayer.push( e );
 

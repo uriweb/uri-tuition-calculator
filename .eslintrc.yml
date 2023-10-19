@@ -26,6 +26,9 @@ rules:
 # Some of these aren't really globals, but this is useful for ignoring no-undef for class vars etc.
 globals:
   jQuery: readonly
+  Papa: readonly # library
+  spreadsheet: readonly # localized variable @see uri-tuition-calculator.php
+  term: readonly # localized variable @see uri-tuition-calculator.php
 
 # Specify files and directories to ignore
 ignorePatterns:
