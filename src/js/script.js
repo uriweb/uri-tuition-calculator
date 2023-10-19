@@ -83,18 +83,25 @@
 	}
 
 		 function calculateCost( data ) {
+		//set variables
 		const csvData = data.data;
 		const dropDownValues = [ courseNumber.value, courseNumber2.value, courseNumber3.value, courseNumber4.value ];
 		//Set empty array to collect selected course cost data
 		const courseDataSet = [];
-		
+		//hook up analystics
+		const e = {
+			event: 'tuitionCalculatorSubmit',
+			term: term.text,
+			courses: dropDownValues,
+		};
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push( e );
 
 		//Filter dropDownValues array to only selected courses from dropdowns
 		const selectedCourses = dropDownValues.filter( checkForValue );
 		function checkForValue( course ) {
 			return course.length > 0;
 		}
-		
 
 		//For each course selected, get cost data and add to courseDataSet array
 		for ( const val of dropDownValues ) {
@@ -104,7 +111,7 @@
 
 			courseDataSet.push( courseResults );
 			   }
-			  
+
 		let techFee = 0,
 			courseFee = 0,
 			inStateT = 0,
@@ -160,7 +167,6 @@
 			document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
 			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
 		}
-
 
 		//create total array
 		const totalArray = [ techFee, registrationFee, studentActFee, transcriptFee, documentFee, courseFee ];
