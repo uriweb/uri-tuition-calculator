@@ -166,7 +166,7 @@
 		}
 		if ( inclAccessFee !== 0 ) {
 			document.getElementById( 'inclusive-access-fee' ).textContent = 'Inclusive Access Fee*: $' + inclAccessFee + '.00';
-			document.getElementById( 'access-note' ).style.display = 'block';
+			document.getElementById( 'access-note' ).textContent = '*Inclusive Access is a course material affordability program designed by institutions and guided by the Department of Education to deliver digital learning resources to students at a significantly reduced cost on or before the first day of class.';
 		}
 		//Display Summer fees
 		if ( term.text == 'Summer' ) {
