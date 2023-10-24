@@ -88,7 +88,7 @@
    <p id="inclusive-access-fee"></p>
    <br>
    <p id="total" style="font-weight:bold" ;></p>
-   <p id="access-note">*Inclusive Access is a course material affordability program designed by institutions and guided by the Department of Education to deliver digital learning resources to students at a significantly reduced cost on or before the first day of class.</p>
+   <p id="access-note"></p>
 </div><!--END CALC CONTENT-->
 
 
