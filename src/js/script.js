@@ -101,6 +101,9 @@
 		window.dataLayer = window.dataLayer || [];
 		window.dataLayer.push( e );
 
+		//Remove form content
+		document.querySelector( '.form-content' ).style.display = 'none';
+
 		//Filter dropDownValues array to only selected courses from dropdowns
 		const selectedCourses = dropDownValues.filter( checkForValue );
 		function checkForValue( course ) {
@@ -124,7 +127,8 @@
 			registrationFee = 0,
 			studentActFee = 0,
 			transcriptFee = 0,
-			documentFee = 0;
+			documentFee = 0,
+			inclAccessFee = 0;
 		if ( document.getElementById( 'firstclass' ).checked && term.text == 'Summer' ) {
 			registrationFee = 30; studentActFee = 20; transcriptFee = 50;
 		}
@@ -146,6 +150,7 @@
 				regTuition += Number( courseDataSet[ i ][ x ][ 'Reg. Tuition' ] );
 				oos += Number( courseDataSet[ i ][ x ][ 'OOS Tuition' ] );
 				courseFee += Number( courseDataSet[ i ][ x ][ 'Course Fee' ] );
+				inclAccessFee += Number( courseDataSet[ i ][ x ][ 'Inclusive Access Fee' ] );
 			}
 		}
 
@@ -159,21 +164,39 @@
 		if ( document.getElementById( 'resi' ).value == 'out-of-state' ) {
 			document.getElementById( 'out-of-state' ).textContent = 'Out-of-State Tuition: $' + oos.toLocaleString() + '.00';
 		}
+		if ( inclAccessFee !== 0 ) {
+			document.getElementById( 'inclusive-access-fee' ).textContent = 'Inclusive Access Fee*: $' + inclAccessFee + '.00';
+			document.getElementById( 'access-note' ).style.display = 'block';
+		}
+		//Display Summer fees
 		if ( term.text == 'Summer' ) {
 			document.getElementById( 'registration-fee' ).textContent = 'Registration Fee: $' + registrationFee + '.00';
-			document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
+			if ( transcriptFee !== 0 ) {
+				document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
+			}
 			document.getElementById( 'student-act-fee' ).textContent = 'Student Activity Fee: $' + studentActFee + '.00';
-			document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
-			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
-			document.getElementById( 'techFee' ).textContent = 'Technology Fee: $' + techFee + '.00';
+			if ( documentFee !== 0 ) {
+				document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
+			}
+			if ( courseFee !== 0 ) {
+				document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
+			}
+			if ( techFee !== 0 ) {
+				document.getElementById( 'techFee' ).textContent = 'Technology Fee: $' + techFee + '.00';
+			}
 		}
+		//Display JTerm fees
 		if ( term.text == 'JTerm' ) {
-			document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
-			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
+			if ( transcriptFee !== 0 ) {
+				document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
+			}
+			if ( courseFee !== 0 ) {
+				document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
+			}
 		}
 
 		//create total array
-		const totalArray = [ techFee, registrationFee, studentActFee, transcriptFee, documentFee, courseFee ];
+		const totalArray = [ techFee, registrationFee, studentActFee, transcriptFee, documentFee, courseFee, inclAccessFee ];
 		if ( document.getElementById( 'resi' ).value == 'instate' ) {
 			totalArray.push( inStateT );
 		}
