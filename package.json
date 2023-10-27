@@ -1,7 +1,7 @@
 {
   "name": "uri-tuition-calculator",
   "description": "URI Tuition Calculator",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "homepage": "https://www.uri.edu",
   "repository": "https://github.com/uriweb/uri-tuition-calculator",
   "docs": "https://github.com/uriweb/uri-tuition-calculator#readme",
