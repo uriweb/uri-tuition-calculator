@@ -15,7 +15,7 @@ function uri_tuition_calculator_shortcode( $attributes ) {
 	// default attributes
 	$attributes = shortcode_atts(
 		 array(
-			'title' => 'Tuition & Fees Calculator',
+			 'title' => 'Tuition & Fees Calculator',
 		 ),
 		$attributes,
 		);
