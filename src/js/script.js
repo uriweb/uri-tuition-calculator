@@ -125,18 +125,21 @@
 			regTuition = 0,
 			oos = 0,
 			registrationFee = 0,
-			studentActFee = 0,
 			transcriptFee = 0,
 			documentFee = 0,
 			inclAccessFee = 0;
+
+		if ( term.text == 'Summer' ) {
+			registrationFee = 30;
+		}
 		if ( document.getElementById( 'firstclass' ).checked && term.text == 'Summer' ) {
-			registrationFee = 30; studentActFee = 20; transcriptFee = 50;
+			 transcriptFee = 50;
 		}
 		if ( document.getElementById( 'firstclass' ).checked && term.text == 'JTerm' ) {
 			transcriptFee = 50;
 		}
 		if ( document.getElementById( 'matriculating' ).checked ) {
-			documentFee = 115;
+			documentFee = 0;
 		}
 
 		//Display text that shows the courses selected
@@ -174,7 +177,6 @@
 			if ( transcriptFee !== 0 ) {
 				document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
 			}
-			document.getElementById( 'student-act-fee' ).textContent = 'Student Activity Fee: $' + studentActFee + '.00';
 			if ( documentFee !== 0 ) {
 				document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
 			}
@@ -196,7 +198,7 @@
 		}
 
 		//create total array
-		const totalArray = [ techFee, registrationFee, studentActFee, transcriptFee, documentFee, courseFee, inclAccessFee ];
+		const totalArray = [ techFee, registrationFee, transcriptFee, documentFee, courseFee, inclAccessFee ];
 		if ( document.getElementById( 'resi' ).value == 'instate' ) {
 			totalArray.push( inStateT );
 		}

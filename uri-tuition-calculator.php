@@ -3,7 +3,7 @@
  * Plugin Name: URI Tuition Calculator
  * Plugin URI: http://www.uri.edu
  * Description: A calculator for course tuition and fees
- * Version: 1.2.2
+ * Version: 1.3.0
  * Author: URI Web Communications
  * Author URI: https://www.uri.edu/
  *

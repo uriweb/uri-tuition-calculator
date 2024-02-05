@@ -18,7 +18,6 @@ function uri_tuition_calculator_shortcode( $attributes ) {
 			 'title' => 'Tuition & Fees Calculator',
 		 ),
 		$attributes,
-		$shortcode
 		);
 
 	ob_start();
