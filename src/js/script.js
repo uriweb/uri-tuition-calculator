@@ -139,7 +139,7 @@
 			transcriptFee = 50;
 		}
 		if ( document.getElementById( 'matriculating' ).checked ) {
-			documentFee = 115;
+			documentFee = 0;
 		}
 
 		//Display text that shows the courses selected
