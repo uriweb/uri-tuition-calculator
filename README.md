@@ -16,4 +16,4 @@ Contributors: Brandon Fuller, Alexandra Gauss, Sarah Pucino
 Tags: plugins  
 Requires at least: 4.0  
 Tested up to: 5.7  
-Stable tag: 1.2.2 
+Stable tag: 1.3.0 
