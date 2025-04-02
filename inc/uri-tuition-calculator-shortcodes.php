@@ -17,7 +17,7 @@ function uri_tuition_calculator_shortcode($attributes)
 	// default attributes
 	$attributes = shortcode_atts(
 		array(
-			'calculator_name' => null, // Takes 'summer', 'jterm', 'pellgrant' 
+			'calc_name' => null, // Takes 'summer', 'jterm', 'pellgrant' 
 			'title' => 'Tuition and Fees Calculator',
 			'spreadsheet' => null, // URL of sheet Ex. 'https://docs.google.com/spreadsheets/d/[spreadsheetID]/gviz/tq?tqx=out:csv&sheet=[SheetName]'
 			'semester' => null, // ex. "Spring 2025"
@@ -25,16 +25,24 @@ function uri_tuition_calculator_shortcode($attributes)
 		$attributes,
 	);
 
+	//localize script for spreadsheet
+	$spreadsheet = $attributes['spreadsheet'];
+	wp_localize_script(
+		'uri-tuition-calculator-js',
+	   'spreadsheet',
+	   array(
+		   'url' => $spreadsheet,
+	   )
+	   );
+
 	// If summer calculator 
-	if( $attributes['calculator'] == 'summer') {
-		$spreadsheet = $attributes['spreadsheet'];
+	if( $attributes['calc_name'] == 'summer') {
 		$semester = $attributes['semester'];
 	//localize scripts 
 	wp_localize_script(
 		'uri-tuition-calculator-js',
 	   'summer',
 	   array(
-		   'spreadsheet' => $spreadsheet,
 		   'semester' => $semester
 	   )
 	   );
@@ -47,16 +55,14 @@ function uri_tuition_calculator_shortcode($attributes)
 
 
 	// If jterm calculator 
-	if( $attributes['calculator'] == 'jterm') {
+	if( $attributes['calc_name'] == 'jterm') {
 		//localize scripts 
-		$spreadsheet = $attributes['spreadsheet'];
 		$semester = $attributes['semester'];
 	//localize scripts 
 	wp_localize_script(
 		'uri-tuition-calculator-js',
 	   'jterm',
 	   array(
-		   'spreadsheet' => $spreadsheet,
 		   'semester' => $semester
 	   )
 	   );
@@ -68,16 +74,14 @@ function uri_tuition_calculator_shortcode($attributes)
 	}
 
 	// If pellgrant calculator
-	if( $attributes['calculator'] == 'pellgrant') {
+	if( $attributes['calc_name'] == 'pellgrant') {
 		$attributes['title'] == 'Summer Federal Pell Grant Estimator';
-		$spreadsheet = $attributes['spreadsheet'];
 		$semester = $attributes['semester'];
 	//localize scripts 
 	wp_localize_script(
 		'uri-tuition-calculator-js',
 	   'pellgrant',
 	   array(
-		   'spreadsheet' => $spreadsheet,
 		   'semester' => $semester
 	   )
 	   );
