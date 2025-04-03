@@ -64,6 +64,7 @@
 			</fieldset>
 			<input type="button" id="addCourse" value="+ Add another course">
 		</div><!--END ADD COURSES-->
+		</div> <!--End form content-->
 
 		<!--BUTTONS-->
 		<div id="buttons">
@@ -72,10 +73,9 @@
 
 			<input type="button" id="reload" value="Reset Calculator">
 		</div>
-
 		<!--END BUTTONS-->
 
-		<!--calculations here -->
+
 		<!--CALC CONTENT-->
 <div class="calculations">
    <p class="yourCourses"></p>
@@ -86,16 +86,13 @@
    <p id="course-fee"></p>
    <p id="techFee"></p>
    <p id="registration-fee"></p>
-   <p id="student-act-fee"></p>
-   <p id="transcript-fee"></p>
-   <p id="document-fee"></p>
-   <p id="inclusive-access-fee"></p>
+   <p id="summer-credit-total"></p>
+   <p id="award-amount"></p>
+
    <br>
    <p id="total" style="font-weight:bold" ;></p>
+   <p id="new-total"></p>
 
-   <p id="awardAmount"></p>
-   <p id="maxAmount"></p>
-   <p id="newTotal"></p>
 </div><!--END CALC CONTENT-->
 
 
