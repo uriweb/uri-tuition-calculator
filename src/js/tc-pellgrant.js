@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 /**
  * Pell Grant Calculator
@@ -64,12 +65,47 @@
 
 		//Make sure residency status is checked
 		function checkFirstPG() {
+			const allSelectIds = [ 'resi', 'p-award', 'c-amount', 'courseNumber' ];
+
+			checkDisabledSelects();
+
+			function checkDisabledSelects() {
+				let checkCleared = true;
+
+				// Iterate over the array of select IDs
+				allSelectIds.forEach( ( id ) => {
+					const selectElement = document.getElementById( id );
+
+					if ( selectElement ) {
+						// Check if the select is disabled or does not have a selected value
+						if ( selectElement.disabled || selectElement.value === 'disabled' ) {
+							checkCleared = false; // Mark as false if any select is disabled or not selected
+						}
+					}
+				} );
+
+				if ( checkCleared ) {
+					calculateCostPG( data );
+				} else {
+					alert( 'Please select all options.' );
+				}
+			}
+			// Call the function to check the selects
+
+			/*
 			if ( document.getElementById( 'resi' ).value === 'disabled' ) {
 				// eslint-disable-next-line no-alert
 				alert( 'Please select your residency status.' );
+			} if ( document.getElementById( 'p-award' ).value === 'disabled' ) {
+				alert( 'Please select Pell Grant Award Amount' );
+			} if ( document.getElementById( 'c-amount' ).value === 'disabled' ) {
+				alert( 'Please select the number of enrolled credits for the Spring semester' );
+			} if ( document.getElementById( 'courseNumber' ).value === 'disabled' ) {
+				alert( 'Please select a course' );
 			} else {
 				calculateCostPG( data );
 			}
+				*/
 		}
 	}
 
@@ -178,18 +214,17 @@
 				}
 			}
 
-			//Percentage for Spring credit total
-			const pellSpringPercent = intensityMap.get( springCredits );
+			//Get percentage for Spring credit total using intensity map
+			const pellSpringPercent = Number( intensityMap.get( springCredits ) );
 
 			//Divide Pell Award amount by percentage for Spring credit total
-			const springAwardAmount = pellAward / pellSpringPercent;
+			const springAwardAmount = Number( Math.round( pellAward / pellSpringPercent ) );
 
-			//Get percentage for Summer credit total 
-			const pellSummerPercent = intensityMap.get( summerCredits );
+			//Get percentage for Summer credit total
+			const pellSummerPercent = Number( intensityMap.get( summerCredits ) );
 
 			//Multiply Spring Award Amount by summer percentage
-			const estimatedSummerPellAward = Math.round(springAwardAmount * pellSummerPercent);
-
+			const estimatedSummerPellAward = Number( Math.round( springAwardAmount * pellSummerPercent ) );
 
 			//Display breakdown of tuition cost
 			if ( document.getElementById( 'resi' ).value === 'instate' ) {
@@ -211,10 +246,7 @@
 			}
 			document.getElementById( 'registration-fee' ).textContent = 'Registration Fee: $' + registrationFee + '.00';
 
-			//Display Pell Award
-			document.getElementById( 'award-amount' ).textContent = 'Estimated Federal Pell Grant Award for Summer: $' + estimatedSummerPellAward + '.00';
-
-			document.getElementById( 'summer-credit-total' ).textContent = 'Total Summer Credits: ' + summerCredits;
+			document.getElementById( 'summer-credit-total' ).textContent = 'Summer Credits: ' + summerCredits;
 
 			//create total array
 			const totalArray = [ techFee, courseFee, registrationFee ];
@@ -228,9 +260,18 @@
 				totalArray.push( oos );
 			}
 
+			const totalCost = totalArray.reduce( totalFinal );
+
+			//Cost with award, but not less than 0
+			const totalWithPG = Number( Math.max( 0, totalCost - estimatedSummerPellAward ) );
+
 			//Display total
-			document.getElementById( 'total' ).style.display = 'block';
-			document.getElementById( 'total' ).textContent = 'Estimated Total: $' + totalArray.reduce( totalFinal ).toLocaleString() + '.00';
+			document.getElementById( 'tuition-total' ).style.display = 'block';
+			document.getElementById( 'tuition-total' ).textContent = 'Tuition and Fees Subtotal: $' + totalCost.toLocaleString() + '.00';
+			//Display Pell Award
+			document.getElementById( 'max-award' ).textContent = 'Estimated Maximum Summer Federal Pell Eligibility (if taking 12+ credits): $' + springAwardAmount + '.00.';
+			document.getElementById( 'summer-award' ).textContent = 'Estimated Federal Pell Grant Award for ' + summerCredits + ' Summer Credit(s): $' + estimatedSummerPellAward + '.00';
+			document.getElementById( 'new-total' ).textContent = 'Estimated Summer Semester Cost: $' + totalWithPG.toLocaleString() + '.00';
 
 			//Add total array elements together
 			function totalFinal( total, num ) {
