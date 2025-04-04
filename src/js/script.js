@@ -8,13 +8,14 @@
  *
  * @package
  */
-
+/*
 ( function() {
 	'use strict';
 
 	window.addEventListener( 'load', function() {
 		uriTuitionCalcInit();
 	} );
+	 */
 
 	function uriTuitionCalcInit() {
 		const urlSpreadsheet = spreadsheet.text;
@@ -229,4 +230,4 @@
 		document.getElementById( 'reload' ).style.display = 'block';
 		document.getElementById( 'calc' ).style.display = 'none';
 		 }
-}() );
+//}() );

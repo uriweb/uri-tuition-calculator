@@ -78,7 +78,8 @@
 
 					if ( selectElement ) {
 						// Check if the select is disabled or does not have a selected value
-						if ( selectElement.disabled || selectElement.value === 'disabled' ) {
+						if ( selectElement.disabled || selectElement.value === 'disabled' || selectElement.value === '' ) {
+							console.log(courseNumber.value);
 							checkCleared = false; // Mark as false if any select is disabled or not selected
 						}
 					}
