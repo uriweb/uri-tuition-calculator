@@ -75,7 +75,7 @@ function uri_tuition_calculator_shortcode($attributes)
 
 	// If pellgrant calculator
 	if( $attributes['calc_name'] == 'pellgrant') {
-		$attributes['title'] == 'Summer Federal Pell Grant Estimator';
+		$attributes['title'] = 'Summer Federal Pell Grant Estimator';
 		$semester = $attributes['semester'];
 	//localize scripts 
 	wp_localize_script(

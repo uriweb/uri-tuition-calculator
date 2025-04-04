@@ -15,7 +15,7 @@
 	<div class="form-content">
 		<!--SELECT AWARD AMOUNT-->
 		<div class="award-amount">
-			<label for="pell-amount" id="award-amount"><?php print $attributes['semester']?> Federal Pell Grant Award Amount</label><br>
+			<label for="pell-amount" id="award-amount">Federal Pell Grant Award for the Spring <?php print $attributes['semester']?> semester</label><br>
 			<select id="p-award">
 			<option selected value="disabled">Select Amount</option>
 			</select>
@@ -23,7 +23,7 @@
 
 		<!--Number of Credit Selection-->
 		<div class="credit-amount">
-			<label for="credit-amount" id="credit-amount">How many credits are you enrolled in for the <?php print $attributes['semester']?> semester at URI?</label><br>
+			<label for="credit-amount" id="credit-amount">Number of Spring <?php print $attributes['semester']?> semester credits</label><br>
 			<select id="c-amount">
 			<option selected value="disabled">Select Amount</option>
 			</select>
@@ -87,11 +87,14 @@
    <p id="techFee"></p>
    <p id="registration-fee"></p>
    <p id="summer-credit-total"></p>
-   <p id="award-amount"></p>
+   <p id="max-award"></p>
+    
 
    <br>
-   <p id="total" style="font-weight:bold" ;></p>
+   <p id="tuition-total"></p>
+   <p id="summer-award"></p>
    <p id="new-total"></p>
+   
 
 </div><!--END CALC CONTENT-->
 
