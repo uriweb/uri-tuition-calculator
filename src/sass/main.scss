@@ -236,8 +236,12 @@ p.yourCourses{
 
 
 @media (max-width: 1199.98px){ 
-    #residency, #selectcourses, #buttons, .tuition-calc-header, .yourcourses {
+    #residency, #selectcourses, #buttons, .tuition-calc-header, .yourcourses, #award-amount, #credit-amount {
     padding-left:1rem;
+}
+
+#award-amount, #credit-amount {
+    display: inline-block;
 }
 
     .calculations p {

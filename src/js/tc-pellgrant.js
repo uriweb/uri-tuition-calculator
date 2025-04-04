@@ -253,8 +253,8 @@
 			document.getElementById( 'tuition-total' ).style.display = 'block';
 			document.getElementById( 'tuition-total' ).textContent = 'Tuition and Fees Subtotal: $' + totalCost.toLocaleString() + '.00';
 			//Display Pell Award
-			document.getElementById( 'max-award' ).textContent = 'Estimated Maximum Summer Federal Pell Eligibility (if taking 12+ credits): $' + springAwardAmount + '.00.';
-			document.getElementById( 'summer-award' ).textContent = 'Estimated Federal Pell Grant Award for ' + summerCredits + ' Summer Credit(s): $' + estimatedSummerPellAward + '.00';
+			document.getElementById( 'max-award' ).textContent = 'Estimated Maximum Summer Federal Pell Eligibility (if taking 12+ credits): $' + springAwardAmount.toLocaleString() + '.00';
+			document.getElementById( 'summer-award' ).textContent = 'Estimated Federal Pell Grant Award for ' + summerCredits + ' Summer Credit(s): $' + estimatedSummerPellAward.toLocaleString() + '.00';
 			document.getElementById( 'new-total' ).textContent = 'Estimated Summer Semester Cost: $' + totalWithPG.toLocaleString() + '.00';
 
 			//Add total array elements together
