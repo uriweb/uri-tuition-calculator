@@ -79,7 +79,6 @@
 					if ( selectElement ) {
 						// Check if the select is disabled or does not have a selected value
 						if ( selectElement.disabled || selectElement.value === 'disabled' || selectElement.value === '' ) {
-							console.log(courseNumber.value);
 							checkCleared = false; // Mark as false if any select is disabled or not selected
 						}
 					}
@@ -91,22 +90,6 @@
 					alert( 'Please select all options.' );
 				}
 			}
-			// Call the function to check the selects
-
-			/*
-			if ( document.getElementById( 'resi' ).value === 'disabled' ) {
-				// eslint-disable-next-line no-alert
-				alert( 'Please select your residency status.' );
-			} if ( document.getElementById( 'p-award' ).value === 'disabled' ) {
-				alert( 'Please select Pell Grant Award Amount' );
-			} if ( document.getElementById( 'c-amount' ).value === 'disabled' ) {
-				alert( 'Please select the number of enrolled credits for the Spring semester' );
-			} if ( document.getElementById( 'courseNumber' ).value === 'disabled' ) {
-				alert( 'Please select a course' );
-			} else {
-				calculateCostPG( data );
-			}
-				*/
 		}
 	}
 
