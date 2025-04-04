@@ -201,14 +201,14 @@
 			//Get percentage for Spring credit total using intensity map
 			const pellSpringPercent = Number( intensityMap.get( springCredits ) );
 
-			//Divide Pell Award amount by percentage for Spring credit total
-			const springAwardAmount = Number( Math.round( pellAward / pellSpringPercent ) );
+			//Divide Pell Award amount by percentage for Spring credit total. Cap it at 3697
+			const springAwardAmount = Number(Math.min( Math.round( pellAward / pellSpringPercent ), 3697 ) );
 
 			//Get percentage for Summer credit total
-			const pellSummerPercent = Number( intensityMap.get( summerCredits ) );
+			const pellSummerPercent = Number( intensityMap.get( summerCredits ) )
 
-			//Multiply Spring Award Amount by summer percentage
-			const estimatedSummerPellAward = Number( Math.round( springAwardAmount * pellSummerPercent ) );
+			//Multiply Spring Award Amount by summer percentage. Not to exceed 3697
+			const estimatedSummerPellAward = Number(Math.min( Math.round( springAwardAmount * pellSummerPercent ), 3697 ) );
 
 			//Display breakdown of tuition cost
 			if ( document.getElementById( 'resi' ).value === 'instate' ) {
