@@ -7,15 +7,15 @@
 ( function() {
 	'use strict';
 
-	/*
-	document.getElementById( 'pell-grant-calc' ).addEventListener( 'load', function() {
-		uriPellGrantInit();
-	} );
-     */
-
-	window.addEventListener( 'load', function() {
+	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'pell-grant-calc' ) ) {
-			uriPellGrantInit();
+			console.log( 'pellgrant' );
+
+			let pellcalc = document.getElementById( 'pell-grant-calc' );
+
+			if ( pellcalc ) {
+				uriPellGrantInit();
+			}
 		}
 	} );
 
