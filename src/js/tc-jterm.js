@@ -9,25 +9,23 @@
 	'use strict';
 
 	window.addEventListener( 'DOMContentLoaded', function() {
-		if ( document.getElementById( 'summer-calc' ) ) {
-			console.log( 'summer' );
+		if ( document.getElementById( 'jterm-calc' ) ) {
+			console.log( 'jterm' );
 
-			const summerCalc = document.getElementById( 'summer-calc' );
+			const jtermCalc = document.getElementById( 'jterm-calc' );
 
-			if ( summerCalc ) {
-				uriTuitionCalcSummer();
+			if ( jtermCalc ) {
+				uriTuitionCalcJTerm();
 			}
 		}
 	} );
+	function uriTuitionCalcJTerm() {
+		const urlSpreadsheetJTerm = spreadsheet.url;
 
-	function uriTuitionCalcSummer() {
-		const urlSpreadsheetSummer = spreadsheet.url;
+		parseDataJTerm( urlSpreadsheetJTerm, dropDownsJTerm );
 
-		parseDataSummerCalc( urlSpreadsheetSummer, dropDownsSummer );
-
-		// eslint-disable-next-line no-shadow
-		function parseDataSummerCalc( urlSpreadsheetSummer, courseData ) {
-			Papa.parse( urlSpreadsheetSummer, {
+		function parseDataJTerm( urlSpreadsheetJTerm, courseData ) {
+			Papa.parse( urlSpreadsheetJTerm, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers
@@ -39,7 +37,7 @@
 		}
 	}
 
-	function dropDownsSummer( data ) {
+	function dropDownsJTerm( data ) {
 	//Populate dropdowns
 		const coursesList = data.data.map( ( { Course } ) => Course );
 		//const csvData = data.data;
@@ -67,16 +65,11 @@
 			}
 		} );
 
-		// Reveal 2nd radio question if first is checked
-		document.getElementById( 'q2' ).addEventListener( 'change', function() {
-			document.getElementById( 'q3' ).style.display = 'block';
-		} );
-
 		//Calculate cost when button is clicked
-		document.getElementById( 'calc' ).addEventListener( 'click', checkFirstSummer );
+		document.getElementById( 'calc' ).addEventListener( 'click', checkFirstJTerm );
 
 		//Make sure residency status is checked
-		function checkFirstSummer() {
+		function checkFirstJTerm() {
 			const allSelectIds = [ 'resi', 'courseNumber' ];
 
 			checkDisabledSelects();
@@ -97,7 +90,7 @@
 				} );
 
 				if ( checkCleared ) {
-					calculateCost( data );
+					calculateCostJTerm( data );
 				} else {
 					alert( 'Please select all options.' );
 				}
@@ -105,7 +98,7 @@
 		}
 	}
 
-	function calculateCost( data ) {
+	function calculateCostJTerm( data ) {
 	//set variables
 		const csvData = data.data;
 		const dropDownValues = [ courseNumber.value, courseNumber2.value, courseNumber3.value, courseNumber4.value ];
@@ -147,11 +140,10 @@
 			inStateT = 0,
 			regTuition = 0,
 			oos = 0,
-			registrationFee = 0,
 			transcriptFee = 0,
 			documentFee = 0,
 			inclAccessFee = 0;
-		registrationFee = 30;
+		const registrationFee = 0;
 
 		if ( document.getElementById( 'firstclass' ).checked ) {
 			transcriptFee = 50;
@@ -189,19 +181,13 @@
 			document.getElementById( 'inclusive-access-fee' ).textContent = 'Inclusive Access Fee*: $' + inclAccessFee + '.00';
 			document.getElementById( 'access-note' ).textContent = '*Inclusive Access is a course material affordability program designed by institutions and guided by the Department of Education to deliver digital learning resources to students at a significantly reduced cost on or before the first day of class.';
 		}
-		//Display Summer fees
-		document.getElementById( 'registration-fee' ).textContent = 'Registration Fee: $' + registrationFee + '.00';
+
+		//Display JTerm fees
 		if ( transcriptFee !== 0 ) {
 			document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
 		}
-		if ( documentFee !== 0 ) {
-			document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
-		}
 		if ( courseFee !== 0 ) {
 			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';
-		}
-		if ( techFee !== 0 ) {
-			document.getElementById( 'techFee' ).textContent = 'Technology Fee: $' + techFee + '.00';
 		}
 
 		//create total array
@@ -235,6 +221,5 @@
 		//Replace "Calculate Cost" button with "Reset Calculator"
 		document.getElementById( 'reload' ).style.display = 'block';
 		document.getElementById( 'calc' ).style.display = 'none';
-	}
+		 }
 }() );
-
