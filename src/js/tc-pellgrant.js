@@ -128,6 +128,17 @@
 		//Set empty array to collect selected course cost data
 		const courseDataSet = [];
 
+		//hook up analytics
+		const e = {
+			event: 'tuitionCalculatorSubmit',
+			term: 'pellgrant',
+			courses: dropDownValues,
+			residency: document.getElementById( 'resi' ).value,
+		};
+		//console.log(e);
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push( e );
+
 		//Remove form content
 		document.querySelector( '.form-content' ).style.display = 'none';
 

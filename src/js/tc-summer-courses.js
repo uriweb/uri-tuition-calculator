@@ -3,7 +3,7 @@
 /**
  * SUMMER CALCULATOR SCRIPT
  *
- * @package uri-tuition-calculator
+ * @package
  */
 
 ( function() {
@@ -109,7 +109,7 @@
 		//hook up analytics
 		const e = {
 			event: 'tuitionCalculatorSubmit',
-			//term: term.text.toLowerCase(),
+			term: 'summer',
 			courses: dropDownValues,
 			residency: document.getElementById( 'resi' ).value,
 			firstclass: document.getElementById( 'firstclass' ).checked,

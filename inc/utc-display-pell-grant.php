@@ -2,8 +2,6 @@
 
 /**
  * URI TUITION CALCULATOR - PELL GRANT DISPLAY TEMPLATE 
- *
- * @package uri-tuition-calculator
  */
 
 ?>
