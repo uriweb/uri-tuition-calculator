@@ -37,9 +37,8 @@ function uri_tuition_calculator_cache_buster() {
 	return $cache_buster;
 }
 
-// Include the admin settings screen
-include_once( URI_TUITION_CALCULATOR_PATH . 'inc/uri-tuition-calculator-settings.php' );
-
+// Include shortcodes
+include( URI_TUITION_CALCULATOR_PATH . 'inc/uri-tuition-calculator-shortcodes.php' );
 
 
 /**
@@ -53,24 +52,7 @@ function uri_tuition_calculator_enqueues() {
 	wp_register_script( 'uri-tuition-calculator-js', plugins_url( '/js/script.built.js', __FILE__ ), array(), uri_tuition_calculator_cache_buster(), true );
 	wp_enqueue_script( 'uri-tuition-calculator-js' );
 
-	$spreadsheet = get_option( 'uri_tuition_calculator_spreadsheet' );
-	wp_localize_script(
-		'uri-tuition-calculator-js',
-	   'spreadsheet',
-	   array(
-		   'text' => $spreadsheet,
-	   )
-	   );
-	   $term = get_option( 'uri_tuition_calculator_term' );
-	wp_localize_script(
-		'uri-tuition-calculator-js',
-	   'term',
-	   array(
-		   'text' => $term,
-	   )
-	   );
 }
 add_action( 'wp_enqueue_scripts', 'uri_tuition_calculator_enqueues' );
 
-// Include shortcodes
-include( URI_TUITION_CALCULATOR_PATH . 'inc/uri-tuition-calculator-shortcodes.php' );
+
