@@ -1,8 +1,9 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 /**
- * SCRIPTS
+ * SUMMER CALCULATOR SCRIPT
  *
- * @package
+ * @package uri-tuition-calculator
  */
 
 ( function() {
@@ -10,13 +11,7 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'summer-calc' ) ) {
-			console.log( 'summer' );
-
-			const summerCalc = document.getElementById( 'summer-calc' );
-
-			if ( summerCalc ) {
-				uriTuitionCalcSummer();
-			}
+			uriTuitionCalcSummer();
 		}
 	} );
 
@@ -193,9 +188,6 @@
 		document.getElementById( 'registration-fee' ).textContent = 'Registration Fee: $' + registrationFee + '.00';
 		if ( transcriptFee !== 0 ) {
 			document.getElementById( 'transcript-fee' ).textContent = 'Transcript Fee: $' + transcriptFee + '.00';
-		}
-		if ( documentFee !== 0 ) {
-			document.getElementById( 'document-fee' ).textContent = 'Document Fee: $' + documentFee + '.00';
 		}
 		if ( courseFee !== 0 ) {
 			document.getElementById( 'course-fee' ).textContent = 'Course Fee: $' + courseFee + '.00';

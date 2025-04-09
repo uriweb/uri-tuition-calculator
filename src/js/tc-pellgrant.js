@@ -9,13 +9,7 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'pell-grant-calc' ) ) {
-			console.log( 'pellgrant' );
-
-			let pellcalc = document.getElementById( 'pell-grant-calc' );
-
-			if ( pellcalc ) {
-				uriPellGrantInit();
-			}
+			uriPellGrantInit();
 		}
 	} );
 
@@ -202,13 +196,13 @@
 			const pellSpringPercent = Number( intensityMap.get( springCredits ) );
 
 			//Divide Pell Award amount by percentage for Spring credit total. Cap it at 3697
-			const springAwardAmount = Number(Math.min( Math.round( pellAward / pellSpringPercent ), 3697 ) );
+			const springAwardAmount = Number( Math.min( Math.round( pellAward / pellSpringPercent ), 3697 ) );
 
 			//Get percentage for Summer credit total
-			const pellSummerPercent = Number( intensityMap.get( summerCredits ) )
+			const pellSummerPercent = Number( intensityMap.get( summerCredits ) );
 
 			//Multiply Spring Award Amount by summer percentage. Not to exceed 3697
-			const estimatedSummerPellAward = Number(Math.min( Math.round( springAwardAmount * pellSummerPercent ), 3697 ) );
+			const estimatedSummerPellAward = Number( Math.min( Math.round( springAwardAmount * pellSummerPercent ), 3697 ) );
 
 			//Display breakdown of tuition cost
 			if ( document.getElementById( 'resi' ).value === 'instate' ) {

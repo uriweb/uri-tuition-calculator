@@ -1,8 +1,9 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-undef */
 /**
- * SCRIPTS
+ * JTERM CALCULATOR SCRIPT
  *
- * @package
+ * @package uri-tuition-calculator
  */
 
 ( function() {
@@ -10,13 +11,7 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'jterm-calc' ) ) {
-			console.log( 'jterm' );
-
-			const jtermCalc = document.getElementById( 'jterm-calc' );
-
-			if ( jtermCalc ) {
-				uriTuitionCalcJTerm();
-			}
+			uriTuitionCalcJTerm();
 		}
 	} );
 	function uriTuitionCalcJTerm() {
@@ -24,6 +19,7 @@
 
 		parseDataJTerm( urlSpreadsheetJTerm, dropDownsJTerm );
 
+		// eslint-disable-next-line no-shadow
 		function parseDataJTerm( urlSpreadsheetJTerm, courseData ) {
 			Papa.parse( urlSpreadsheetJTerm, {
 				download: true,
@@ -221,5 +217,5 @@
 		//Replace "Calculate Cost" button with "Reset Calculator"
 		document.getElementById( 'reload' ).style.display = 'block';
 		document.getElementById( 'calc' ).style.display = 'none';
-		 }
+	}
 }() );
