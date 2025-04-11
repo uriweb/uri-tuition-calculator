@@ -3,7 +3,6 @@
 /**
  * URI TUITION CALCULATOR - JTERM COURSES DISPLAY TEMPLATE 
  *
- * @package uri-tuition-calculator
  */
 ?>
 <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
@@ -17,9 +16,9 @@
 	  <select id="resi">
 		 <option selected value="disabled">Select Residency
 		 </option>
-		 <option value="instate">In State</option>
+		 <option value="instate">In-State</option>
 		 <option value="regional">Regional</option>
-		 <option value="out-of-state">Out of State</option>
+		 <option value="out-of-state">Out-of-State</option>
 	  </select>
 	  </label>
 
