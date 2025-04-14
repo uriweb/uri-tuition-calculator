@@ -2,6 +2,32 @@
 
 The URI Tuition Calculator brings in tuition and fee data for courses via a Google spreadsheet and calculates an estimated cost.
 
+## What's New in 1.4.0 
+1.4.0 adds a new Pell Grant Calculator and restructures the existing Summer and JTerm calculators so new calculators can be more easily added in the future. 
+
+## Shortcode Parameters 
+
+### calc_name
+default: null \
+choose either: "summer", "jterm", or "pellgrant" \
+ex: `[tuition-calculator calc_name="summer"]`
+
+### title 
+default: "Tuition and Fees Calculator" \
+(Heading level 2) \
+ex: `[tuition-calculator calc_name="jterm" title="Estimated Winter J Term Tuition and Fees Calculator"]`
+
+### spreadsheet
+defualt: null \
+url of the spreadsheet \
+ex: `[tuition-calculator calc_name="summer" spreadsheet="https://docs.google.com/spreadsheets/d/[spreadsheetID]/gviz/tq?tqx=out:csv&sheet=[SheetName]"]`
+
+### semester 
+default: null \
+specify the semester year (appears in text in pellgrant calculator)\
+ex: `[tuition-calculator calc_name="summer" spreadsheet="https://docs.google.com/spreadsheets/d/[spreadsheetID]/gviz/tq?tqx=out:csv&sheet=[SheetName]" semester="2025"]`
+
+
 
 ## Plugin Details
 
@@ -14,6 +40,6 @@ The URI Tuition Calculator brings in tuition and fee data for courses via a Goog
 
 Contributors: Brandon Fuller, Alexandra Gauss, Sarah Pucino
 Tags: plugins  
-Requires at least: 4.0  
-Tested up to: 5.7  
-Stable tag: 1.3.0 
+Requires at least: 6.0  
+Tested up to: 6.7  
+Stable tag: 1.4.0 
