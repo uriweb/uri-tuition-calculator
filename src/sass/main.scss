@@ -55,6 +55,8 @@ $level3:  0 .3rem .5rem rgba(0,0,0,0.2),
 
 /* ======= STYLES ======= */
 
+
+
 select {
     width: 10rem;
     box-shadow: $level1;
@@ -62,6 +64,23 @@ select {
 
 .select #resi{
     margin-bottom:0;
+}
+
+#pellaward {
+    outline: none;
+    padding: 0.6rem;
+    border-radius: 5px; 
+    border: none; 
+    box-shadow: $level1;
+    margin: 1rem;
+    font-family: $type-sans;
+    width: 6.8rem;
+}
+
+#validity {
+    font-size: small;
+    color: #555555;
+    padding-left:1rem;
 }
 
 
@@ -90,7 +109,7 @@ select {
     }
 }
 
-#residency, #selectcourses, #award-amount, #credit-amount {
+#residency, #selectcourses, #award-amount, #credit-amount, #pellInputaward {
     font-weight: bold;
     padding-left:1em;
 }
@@ -175,7 +194,7 @@ select {
     padding-top: 20px;
 }
 
-.award-amount, .credit-amount {
+.award-amount, .credit-amount, .pellInput {
     padding-bottom: 20px;
 }
 
@@ -224,7 +243,7 @@ p.yourCourses{
 
 
 
-#access-note {
+#access-note, #max-note {
     padding-top:4.5rem;
     padding-bottom:1.25rem;
     padding-left:1rem;
@@ -240,7 +259,7 @@ p.yourCourses{
     padding-left:1rem;
 }
 
-#award-amount, #credit-amount {
+#award-amount, #credit-amount, #pellInputaward {
     display: inline-block;
 }
 
