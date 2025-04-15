@@ -9,28 +9,17 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'pell-grant-calc' ) ) {
-			uriPellGrantInit();
-		}
-	} );
-
-	function uriPellGrantInit() {
-		const urlSpreadsheet = spreadsheet.url;
-
-		parseDataPellGrant( urlSpreadsheet, dropDownsPellGrant );
-
-		// eslint-disable-next-line no-shadow
-		function parseDataPellGrant( urlSpreadsheet, courseData ) {
-			Papa.parse( urlSpreadsheet, {
+			Papa.parse( spreadsheet.url, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers
 				complete( results ) {
-					courseData( results );
+					dropDownsPellGrant( results );
 				},
 			}
 			);
 		}
-	}
+	} );
 
 	function dropDownsPellGrant( data ) {
 		//Populate dropdowns

@@ -11,28 +11,17 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'summer-calc' ) ) {
-			uriTuitionCalcSummer();
-		}
-	} );
-
-	function uriTuitionCalcSummer() {
-		const urlSpreadsheetSummer = spreadsheet.url;
-
-		parseDataSummerCalc( urlSpreadsheetSummer, dropDownsSummer );
-
-		// eslint-disable-next-line no-shadow
-		function parseDataSummerCalc( urlSpreadsheetSummer, courseData ) {
-			Papa.parse( urlSpreadsheetSummer, {
+			Papa.parse( spreadsheet.url, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers
 				complete( results ) {
-					courseData( results );
+					dropDownsSummer( results );
 				},
 			}
 			);
 		}
-	}
+	} );
 
 	function dropDownsSummer( data ) {
 	//Populate dropdowns
