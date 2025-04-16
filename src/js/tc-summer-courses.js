@@ -11,7 +11,7 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'summer-calc' ) ) {
-			Papa.parse( spreadsheet.url, {
+			Papa.parse( summer.spreadsheet, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers

@@ -11,7 +11,7 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'jterm-calc' ) ) {
-			Papa.parse( spreadsheet.url, {
+			Papa.parse( jterm.spreadsheet, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers
