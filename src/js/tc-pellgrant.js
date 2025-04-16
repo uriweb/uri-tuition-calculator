@@ -9,28 +9,17 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'pell-grant-calc' ) ) {
-			uriPellGrantInit();
-		}
-	} );
-
-	function uriPellGrantInit() {
-		const urlSpreadsheet = spreadsheet.url;
-
-		parseDataPellGrant( urlSpreadsheet, dropDownsPellGrant );
-
-		// eslint-disable-next-line no-shadow
-		function parseDataPellGrant( urlSpreadsheet, courseData ) {
-			Papa.parse( urlSpreadsheet, {
+			Papa.parse( spreadsheet.url, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers
 				complete( results ) {
-					courseData( results );
+					dropDownsPellGrant( results );
 				},
 			}
 			);
 		}
-	}
+	} );
 
 	function dropDownsPellGrant( data ) {
 		//Populate dropdowns
@@ -50,7 +39,6 @@
 		//Populate other dropdowns
 		creditDropdown();
 		awardDropdown();
-		//awardValidation();
 
 		//functionality to add another course
 		document.getElementById( 'addCourse' ).addEventListener( 'click', addCoursesPellGrant );
@@ -62,14 +50,7 @@
 		function checkFirstPG() {
 			const allSelectIds = [ 'resi', 'p-award', 'c-amount', 'courseNumber' ];
 
-			//Double check Pell Grant Award amount is a number between 370 - 3697
-			//const pellValue = document.getElementById( pellaward.value );
-
-			//if ( pellValue >= 370 || pellValue <= 3697 ) {
 			checkDisabledSelects();
-			//} else {
-			//alert( 'Please select a valid Pell Grant Award amount.' );
-			//}
 
 			function checkDisabledSelects() {
 				let checkCleared = true;
@@ -120,40 +101,6 @@
 			awardOptions.add( option );
 		}
 	}
-
-	/*
-	function awardValidation() {
-		const inputAward = document.getElementById( 'pellaward' );
-		const validity = document.getElementById( 'validity' );
-		let awardAmount = null; //Variable to store the award amount
-
-		// Prevent non-numeric characters
-		inputAward.addEventListener( 'input', ( e ) => {
-			// Clean up any non-numeric characters
-			e.target.value = e.target.value.replace( /[^0-9]/g, '' );
-		} );
-
-		inputAward.addEventListener( 'blur', () => {
-			const value = parseInt( inputAward.value, 10 );
-
-			if ( isNaN( value ) ) {
-				validity.textContent = 'Please enter a valid number.';
-				inputAward.classList.add( 'error' );
-				awardAmount = null;
-			} else if ( value < 370 || value > 3697 ) {
-				validity.textContent = 'Number must be between 370 and 3697.';
-				inputAward.value = '';
-				inputAward.classList.add( 'error' );
-				awardAmount = null;
-			} else {
-				validity.textContent = '';
-				inputAward.classList.remove( 'error' );
-				awardAmount = value;
-				console.log( awardAmount );
-			}
-		} );
-	}
-		*/
 
 	function addCoursesPellGrant() {
 		if ( document.getElementById( 'courseoption3' ).style.display === 'block' ) {
