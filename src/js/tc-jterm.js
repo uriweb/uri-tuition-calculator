@@ -11,27 +11,18 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'jterm-calc' ) ) {
-			uriTuitionCalcJTerm();
-		}
-	} );
-	function uriTuitionCalcJTerm() {
-		const urlSpreadsheetJTerm = spreadsheet.url;
-
-		parseDataJTerm( urlSpreadsheetJTerm, dropDownsJTerm );
-
-		// eslint-disable-next-line no-shadow
-		function parseDataJTerm( urlSpreadsheetJTerm, courseData ) {
-			Papa.parse( urlSpreadsheetJTerm, {
+			Papa.parse( spreadsheet.url, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers
 				complete( results ) {
-					courseData( results );
+					dropDownsJTerm( results );
 				},
 			}
 			);
 		}
-	}
+	} );
+
 
 	function dropDownsJTerm( data ) {
 	//Populate dropdowns
