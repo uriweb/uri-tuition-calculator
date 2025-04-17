@@ -17,33 +17,27 @@ function uri_tuition_calculator_shortcode($attributes)
 	// default attributes
 	$attributes = shortcode_atts(
 		array(
-			'calc_name' => null, // Takes 'summer', 'jterm', 'pellgrant' 
+			'calc_name' => '', // Takes 'summer', 'jterm', 'pellgrant' 
 			'title' => 'Tuition and Fees Calculator',
-			'spreadsheet' => null, // URL of sheet Ex. 'https://docs.google.com/spreadsheets/d/[spreadsheetID]/gviz/tq?tqx=out:csv&sheet=[SheetName]'
-			'semester' => null, // ex. "Spring 2025"
-		),
+			'spreadsheet_id' => '', // id of the spreadsheet
+			'semester' => '', // ex. "Spring 2025"
+			'sheet_name' => '',
+				),
 		$attributes,
 	);
 
-	//localize script for spreadsheet
-	$spreadsheet = $attributes['spreadsheet'];
-	wp_localize_script(
-		'uri-tuition-calculator-js',
-	   'spreadsheet',
-	   array(
-		   'url' => $spreadsheet,
-	   )
-	   );
 
 	// If summer calculator 
 	if( $attributes['calc_name'] == 'summer') {
 		$semester = $attributes['semester'];
+		$spreadsheet = esc_url('https://docs.google.com/spreadsheets/d/'. $attributes['spreadsheet_id'] . '/gviz/tq?tqx=out:csv&sheet='. $attributes['sheet_name']);
 	//localize scripts 
 	wp_localize_script(
 		'uri-tuition-calculator-js',
 	   'summer',
 	   array(
-		   'semester' => $semester
+		   'semester' => $semester,
+		   'spreadsheet' => $spreadsheet
 	   )
 	   );
 
@@ -58,12 +52,14 @@ function uri_tuition_calculator_shortcode($attributes)
 	if( $attributes['calc_name'] == 'jterm') {
 		//localize scripts 
 		$semester = $attributes['semester'];
+		$spreadsheet = esc_url('https://docs.google.com/spreadsheets/d/'. $attributes['spreadsheet_id'] . '/gviz/tq?tqx=out:csv&sheet='. $attributes['sheet_name']);
 	//localize scripts 
 	wp_localize_script(
 		'uri-tuition-calculator-js',
 	   'jterm',
 	   array(
-		   'semester' => $semester
+		   'semester' => $semester,
+		   'spreadsheet' => $spreadsheet
 	   )
 	   );
 
@@ -77,12 +73,14 @@ function uri_tuition_calculator_shortcode($attributes)
 	if( $attributes['calc_name'] == 'pellgrant') {
 		$attributes['title'] = 'Summer Federal Pell Grant Estimator';
 		$semester = $attributes['semester'];
+		$spreadsheet = esc_url('https://docs.google.com/spreadsheets/d/'. $attributes['spreadsheet_id'] . '/gviz/tq?tqx=out:csv&sheet='. $attributes['sheet_name']);
 	//localize scripts 
 	wp_localize_script(
 		'uri-tuition-calculator-js',
 	   'pellgrant',
 	   array(
-		   'semester' => $semester
+		   'semester' => $semester,
+		   'spreadsheet' => $spreadsheet
 	   )
 	   );
 

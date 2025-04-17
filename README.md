@@ -2,7 +2,7 @@
 
 The URI Tuition Calculator brings in tuition and fee data for courses via a Google spreadsheet and calculates an estimated cost.
 
-## What's New in 1.4.1 
+## What's New in 1.4.2 
 This release aims to fix an error with Papaparse.  
 
 ## Shortcode Parameters 
@@ -42,4 +42,4 @@ Contributors: Brandon Fuller, Alexandra Gauss, Sarah Pucino
 Tags: plugins  
 Requires at least: 6.0  
 Tested up to: 6.7  
-Stable tag: 1.4.1
+Stable tag: 1.4.2

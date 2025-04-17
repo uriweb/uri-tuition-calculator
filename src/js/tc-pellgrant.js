@@ -9,7 +9,7 @@
 
 	window.addEventListener( 'DOMContentLoaded', function() {
 		if ( document.getElementById( 'pell-grant-calc' ) ) {
-			Papa.parse( spreadsheet.url, {
+			Papa.parse( pellgrant.spreadsheet, {
 				download: true,
 				header: true,
 				dynamicTyping: true, //convert string to numbers
