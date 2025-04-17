@@ -19,7 +19,7 @@ function uri_tuition_calculator_shortcode($attributes)
 		array(
 			'calc_name' => '', // Takes 'summer', 'jterm', 'pellgrant' 
 			'title' => 'Tuition and Fees Calculator',
-			'spreadsheet_id' => '', // URL of sheet Ex. 'https://docs.google.com/spreadsheets/d/[spreadsheetID]/gviz/tq?tqx=out:csv&sheet=[SheetName]'
+			'spreadsheet_id' => '', // id of the spreadsheet
 			'semester' => '', // ex. "Spring 2025"
 			'sheet_name' => '',
 				),
