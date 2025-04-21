@@ -65,7 +65,7 @@
 
 		//Make sure residency status is checked
 		function checkFirstPG() {
-			const allSelectIds = [ 'resi', 'p-award', 'c-amount', 'courseNumber' ];
+			const allSelectIds = [ 'resi', 'c-amount', 'courseNumber', 'pellaward' ];
 
 			checkDisabledSelects();
 
@@ -159,7 +159,7 @@
 				validity.textContent = '';
 				inputAward.classList.remove( 'error' );
 				awardAmount = value;
-				console.log( awardAmount );
+				console.log (awardAmount);
 			}
 		} );
 	}
@@ -170,6 +170,8 @@
 		const dropDownValues = [ courseNumber.value, courseNumber2.value, courseNumber3.value, courseNumber4.value ];
 		//Set empty array to collect selected course cost data
 		const courseDataSet = [];
+		const pellGrantInput = document.getElementById( 'pellaward' ).value;
+		console.log(pellGrantInput);
 
 		//hook up analytics
 		const e = {
@@ -217,7 +219,7 @@
 				summerCredits = 0;
 
 			const registrationFee = 30;
-			const pellAward = document.getElementById( 'p-award' ).value;
+			const pellAward = document.getElementById( 'pellaward' ).value;
 			//Cap spring credits at 12
 			const springCredits = Math.min( 12, document.getElementById( 'c-amount' ).value );
 

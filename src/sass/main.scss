@@ -99,25 +99,18 @@ select {
     display: inline-block;
     position: relative;
     top: calc(50%);
+    color: $darkgrey;
+    cursor: pointer;
+
+    &:hover {
+        color: $black;
+    }
 }
 
 .ico-times::before {
     content: "\2715";
     cursor: pointer;
 }
-
-//Containing divs for inputs/selects
-/*
-select .pellInput,
-.credit-amount,
-.residency,
-.courses {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-}
-*/
 
 #courseNumber,
 #courseNumber2,
