@@ -48,14 +48,17 @@
 
 				<div id="courseoption2">
 					<select id="courseNumber2" name="courseNumber2" aria-labelledby="selectcourses"></select>
+					<i class="ico-times" id="ico-cancel" role="img" aria-label="Cancel"></i>
 				</div>
 
 				<div id="courseoption3">
 					<select id="courseNumber3" name="courseNumber3" aria-labelledby="selectcourses"></select>
+					<i class="ico-times" id="ico-cancel" role="img" aria-label="Cancel"></i>
 				</div>
 
 				<div id="courseoption4">
 					<select id="courseNumber4" name="courseNumber4" aria-labelledby="selectcourses"></select>
+					<i class="ico-times" id="ico-cancel" role="img" aria-label="Cancel"></i>
 				</div>
 			</fieldset>
 			<input type="button" id="addCourse" value="+ Add another course">

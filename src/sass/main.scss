@@ -83,6 +83,20 @@ select {
     padding-left:1rem;
 }
 
+.ico-times {
+    font: normal .6em/1 Arial, sans-serif;
+    display: inline-block;
+    position: relative;
+    top: calc(50%);
+  }
+  
+  .ico-times::before { 
+    content: "\2715"; 
+    cursor: pointer;
+}
+
+
+
 
 #courseNumber, #courseNumber2, #courseNumber3, #courseNumber4, #resi, #firstclass, #matriculating, #p-award, #c-amount {
         outline: none;

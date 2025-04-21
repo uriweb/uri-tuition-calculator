@@ -36,6 +36,20 @@
 			document.getElementById( dropDownIds[ i ] ).innerHTML = selectOptions + options;
 		}
 
+		const cancelCourse = document.querySelectorAll( '.ico-times' );
+
+		cancelCourse.forEach( ( exIcon ) => {
+			exIcon.addEventListener( 'click', () => {
+			//Get select dropdown
+				const selectBefore = exIcon.previousElementSibling;
+				//Clear select value
+				selectBefore.innerHTML = selectOptions + options;
+				//Get div
+				const courseDiv = exIcon.parentNode;
+				courseDiv.style.display = 'none';
+			} );
+		} );
+
 		//Populate other dropdowns
 		creditDropdown();
 		awardDropdown();
