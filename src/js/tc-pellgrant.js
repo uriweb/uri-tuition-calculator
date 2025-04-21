@@ -36,6 +36,8 @@
 			document.getElementById( dropDownIds[ i ] ).innerHTML = selectOptions + options;
 		}
 
+
+		// Cancel additional course dropdwons functionality
 		const cancelCourse = document.querySelectorAll( '.ico-times' );
 
 		cancelCourse.forEach( ( exIcon ) => {
