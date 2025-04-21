@@ -2,40 +2,40 @@
    COLORS
    ============================== */
 
-   $lightblue: #c0ddf2;
-   $keaneyblue: #2277b3;
-   $midblue: #30557e;
-   $blue: #002147;
-   $darkblue: #001228;
-   
-   $lightgold: #fefada;
-   $midgold: #ffd453;
-   $gold: #c4960c;
-   
-   $white: #ffffff;
-   $lightgrey: #fafafa;
-   $grey: #dddddd;
-   $midgrey: #999999;
-   $darkgrey: #555555;
-   $black: #000000;
-   
-   $link: #005eff;
-   $linkhover: #003287;
-   
-   $accentblue: #057fd4;
+$lightblue: #c0ddf2;
+$keaneyblue: #2277b3;
+$midblue: #30557e;
+$blue: #002147;
+$darkblue: #001228;
+
+$lightgold: #fefada;
+$midgold: #ffd453;
+$gold: #c4960c;
+
+$white: #ffffff;
+$lightgrey: #fafafa;
+$grey: #dddddd;
+$midgrey: #999999;
+$darkgrey: #555555;
+$black: #000000;
+
+$link: #005eff;
+$linkhover: #003287;
+
+$accentblue: #057fd4;
 
 
 /* ==============================
    FAWNTS
    ============================== */
 
-   @import url("https://fonts.googleapis.com/css?family=Lato:400,900|Hind:400,600|Rubik:500") all;
+@import url("https://fonts.googleapis.com/css?family=Lato:400,900|Hind:400,600|Rubik:500") all;
 
-   $type-header: 'Lato', 'Hind', Arial, sans-serif;
-   $type-sans: 'Hind', Arial, sans-serif;
-  
+$type-header: 'Lato', 'Hind', Arial, sans-serif;
+$type-sans: 'Hind', Arial, sans-serif;
 
-   $maxtypewidth: 750px;
+
+$maxtypewidth: 750px;
 
 
 /* ==============================
@@ -43,12 +43,12 @@
    ============================== */
 
 // [x-offset y-offset blur-radius color]
-$level1:  0 .1rem .15rem rgba(0,0,0,0.1),
-          0 .1rem .3rem rgba(0,0,0,0.1);
-$level2:  0 .3rem 1rem rgba(0,0,0,0.1),
-          0 .3rem 3rem rgba(0,0,0,0.1);
-$level3:  0 .3rem .5rem rgba(0,0,0,0.2),
-          0 .3rem 2rem rgba(0,0,0,0.2);
+$level1: 0 .1rem .15rem rgba(0, 0, 0, 0.1),
+    0 .1rem .3rem rgba(0, 0, 0, 0.1);
+$level2: 0 .3rem 1rem rgba(0, 0, 0, 0.1),
+    0 .3rem 3rem rgba(0, 0, 0, 0.1);
+$level3: 0 .3rem .5rem rgba(0, 0, 0, 0.2),
+    0 .3rem 2rem rgba(0, 0, 0, 0.2);
 
 
 
@@ -57,30 +57,41 @@ $level3:  0 .3rem .5rem rgba(0,0,0,0.2),
 
 
 
+input,
 select {
+    outline: none;
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: none;
+    margin: 1rem;
+    font-family: $type-sans;
+    color: $darkgrey;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     width: 10rem;
-    box-shadow: $level1;
+    background: white;
 }
 
-.select #resi{
-    margin-bottom:0;
+
+.select #resi {
+    margin-bottom: 0;
 }
 
 #pellaward {
-    outline: none;
-    padding: 0.6rem;
-    border-radius: 5px; 
-    border: none; 
-    box-shadow: $level1;
-    margin: 1rem;
-    font-family: $type-sans;
     width: 6.8rem;
+
+    &::placeholder {
+        color: $darkgrey;
+    }
 }
+
+
 
 #validity {
     font-size: small;
-    color: #555555;
-    padding-left:1rem;
+    color: $black;
+    padding-left: 1rem;
 }
 
 .ico-times {
@@ -88,27 +99,44 @@ select {
     display: inline-block;
     position: relative;
     top: calc(50%);
-  }
-  
-  .ico-times::before { 
-    content: "\2715"; 
+}
+
+.ico-times::before {
+    content: "\2715";
     cursor: pointer;
 }
 
+//Containing divs for inputs/selects
+/*
+select .pellInput,
+.credit-amount,
+.residency,
+.courses {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+*/
+
+#courseNumber,
+#courseNumber2,
+#courseNumber3,
+#courseNumber4,
+#resi,
+#firstclass,
+#matriculating,
+#p-award,
+#c-amount,
+#pellaward {
+    box-shadow: $level1;
+
+}
 
 
-
-#courseNumber, #courseNumber2, #courseNumber3, #courseNumber4, #resi, #firstclass, #matriculating, #p-award, #c-amount {
-        outline: none;
-        padding: 0.6rem;
-        border-radius: 5px; 
-        border: none; 
-        box-shadow: $level1;
-        margin: 1rem;
-        font-family: $type-sans;
-    }
-
-#courseoption2, #courseoption3, #courseoption4 {
+#courseoption2,
+#courseoption3,
+#courseoption4 {
     display: none;
 }
 
@@ -118,29 +146,34 @@ select {
 
 
     &hover {
-    cursor: pointer;
-    text-decoration: underline;
+        cursor: pointer;
+        text-decoration: underline;
     }
 }
 
-#residency, #selectcourses, #award-amount, #credit-amount, #pellInputaward {
+#residency,
+#selectcourses,
+#award-amount,
+#credit-amount,
+#pellInputaward {
     font-weight: bold;
-    padding-left:1em;
+    padding-left: 1em;
 }
 
-#calc, #reload {
+#calc,
+#reload {
     font-family: $type-sans;
-	font-size: .8rem;
-	font-weight: 700;
-	letter-spacing: .1rem;
-	text-transform: uppercase;
-	color: $white;
-	transition: all .2s ease-in-out;
-	text-shadow: none;
-	border-radius: .2rem;
-	transform: translateY(0);
-	border: none;
-	box-shadow: $level1;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    color: $white;
+    transition: all .2s ease-in-out;
+    text-shadow: none;
+    border-radius: .2rem;
+    transform: translateY(0);
+    border: none;
+    box-shadow: $level1;
     background-color: $blue;
     padding: 1rem;
     width: 100%;
@@ -155,42 +188,43 @@ select {
     }
 }
 
- #reload {
+#reload {
     display: none;
- }
+}
 
 .calculations p {
-    margin:0;
+    margin: 0;
     font-size: 1rem;
     line-height: 2.5rem;
-    max-width:400px;
-    padding-left:1rem;
+    max-width: 400px;
+    padding-left: 1rem;
 }
 
 
 #total {
     display: none;
-    outline:none;
+    outline: none;
     max-width: 400px;
     font-size: larger;
-    padding-left:1rem;
-   }
+    padding-left: 1rem;
+}
 
 #addCourse {
-    background-color:rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
     color: $link;
     border: none;
     padding: .6rem;
     font-size: .9rem;
-    
 
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         color: $linkhover;
         text-decoration: underline;
- }
+    }
 
 }
+
 #q2 {
     padding-top: 40px;
     padding-bottom: 20px;
@@ -208,35 +242,47 @@ select {
     padding-top: 20px;
 }
 
-.award-amount, .credit-amount, .pellInput {
+.award-amount,
+.credit-amount,
+.pellInput {
     padding-bottom: 20px;
 }
 
 #buttons {
     padding-top: 20px;
-    padding-left:1rem;
+    padding-left: 1rem;
 }
 
-p.yourCourses{
+p.yourCourses {
     font-weight: bold;
     font-size: 100%;
-    max-width:400px;
-    line-height:1.8rem;
-    padding-top:2.5rem;
-    padding-bottom:1.25rem;
-    padding-left:1rem;
+    max-width: 400px;
+    line-height: 1.8rem;
+    padding-top: 2.5rem;
+    padding-bottom: 1.25rem;
+    padding-left: 1rem;
 }
 
-#registration-fee, #transcript-fee, #student-act-fee, #document-fee, #course-fee, #techFee, #instateTuition, #regionalTuition, #out-of-state, #inclusive-access-fee, #summer-credit-total {
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    max-width:300px;
-    padding-left:1.5em;
+#registration-fee,
+#transcript-fee,
+#student-act-fee,
+#document-fee,
+#course-fee,
+#techFee,
+#instateTuition,
+#regionalTuition,
+#out-of-state,
+#inclusive-access-fee,
+#summer-credit-total {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    padding-left: 1.5em;
 }
 
 #max-award {
     max-width: 800px;
-    padding-left:1.5em;
-    border-bottom: 2px solid rgba(0,0,0,0.1);
+    padding-left: 1.5em;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 #summer-award {
@@ -248,19 +294,20 @@ p.yourCourses{
 }
 
 #new-total {
-    outline:none;
+    outline: none;
     max-width: 700px;
     font-size: larger;
-    padding-left:1rem;
-    font-weight:bold;
+    padding-left: 1rem;
+    font-weight: bold;
 }
 
 
 
-#access-note, #max-note {
-    padding-top:4.5rem;
-    padding-bottom:1.25rem;
-    padding-left:1rem;
+#access-note,
+#max-note {
+    padding-top: 4.5rem;
+    padding-bottom: 1.25rem;
+    padding-left: 1rem;
     max-width: 800px !important;
     line-height: 1.3rem;
     font-size: .9rem;
@@ -268,29 +315,40 @@ p.yourCourses{
 
 
 
-@media (max-width: 1199.98px){ 
-    #residency, #selectcourses, #buttons, .tuition-calc-header, .yourcourses, #award-amount, #credit-amount {
-    padding-left:1rem;
-}
+@media (max-width: 1199.98px) {
 
-#award-amount, #credit-amount, #pellInputaward {
-    display: inline-block;
-}
+    #residency,
+    #selectcourses,
+    #buttons,
+    .tuition-calc-header,
+    .yourcourses,
+    #award-amount,
+    #credit-amount {
+        padding-left: 1rem;
+    }
+
+    #award-amount,
+    #credit-amount,
+    #pellInputaward {
+        display: inline-block;
+    }
 
     .calculations p {
-    padding-left:1.5rem;
-}
+        padding-left: 1.5rem;
+    }
 
 
 }
 
-@media (max-width: 575.98px){ 
-#q2, #q3{
-    display: flex;
-    flex-direction: row;
-}
+@media (max-width: 575.98px) {
 
-#q3 {
-    display: none;
-}
+    #q2,
+    #q3 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #q3 {
+        display: none;
+    }
 }

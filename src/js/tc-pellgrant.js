@@ -54,7 +54,8 @@
 
 		//Populate other dropdowns
 		creditDropdown();
-		awardDropdown();
+		//awardDropdown();
+		awardValidation();
 
 		//functionality to add another course
 		document.getElementById( 'addCourse' ).addEventListener( 'click', addCoursesPellGrant );
@@ -106,7 +107,7 @@
 		lastOption.text = '12 or more';
 		creditOptions.add( lastOption );
 	}
-
+/*
 	function awardDropdown() {
 		const awardOptions = document.getElementById( 'p-award' );
 
@@ -117,6 +118,7 @@
 			awardOptions.add( option );
 		}
 	}
+		*/
 
 	function addCoursesPellGrant() {
 		if ( document.getElementById( 'courseoption3' ).style.display === 'block' ) {
@@ -128,6 +130,38 @@
 		} else {
 			document.getElementById( 'courseoption2' ).style.display = 'block';
 		}
+	}
+
+	function awardValidation() {
+		const inputAward = document.getElementById( 'pellaward' );
+		const validity = document.getElementById( 'validity' );
+		let awardAmount = null; //Variable to store the award amount
+
+		// Prevent non-numeric characters
+		inputAward.addEventListener( 'input', ( e ) => {
+			// Clean up any non-numeric characters
+			e.target.value = e.target.value.replace( /[^0-9]/g, '' );
+		} );
+
+		inputAward.addEventListener( 'blur', () => {
+			const value = parseInt( inputAward.value, 10 );
+
+			if ( isNaN( value ) ) {
+				validity.textContent = 'Please enter a valid number.';
+				inputAward.classList.add( 'error' );
+				awardAmount = null;
+			} else if ( value < 370 || value > 3697 ) {
+				validity.textContent = 'Number must be between 370 and 3697.';
+				inputAward.value = '';
+				inputAward.classList.add( 'error' );
+				awardAmount = null;
+			} else {
+				validity.textContent = '';
+				inputAward.classList.remove( 'error' );
+				awardAmount = value;
+				console.log( awardAmount );
+			}
+		} );
 	}
 
 	function calculateCostPG( data ) {
