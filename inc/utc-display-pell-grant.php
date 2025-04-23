@@ -12,17 +12,8 @@
 
 	<div class="form-content">
 
-		<!--
-		<div class="award-amount">
-			<label for="p-award" id="award-amount">Federal Pell Grant Award for the Spring <?php print $attributes['semester'] ?> semester</label><br>
-			<select id="p-award">
-				<option selected value="disabled">Select Amount</option>
-			</select>
-		</div>
--->
-
 		<div class="pellInput">
-			<label for="pellaward" id="pellInputaward">Federal Pell Grant Award for the Spring semester</label><br>
+			<label for="pellaward" id="pellInputaward">Federal Pell Grant Award for the Spring <?php print $attributes['semester'] ?> semester</label><br>
 			<input type="number" id="pellaward" inputmode="numeric" min="370" max="3697" minlength="3" maxlength="4" placeholder="Select amount">
 			<p id="validity"></p>
 		</div>

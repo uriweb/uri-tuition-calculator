@@ -79,7 +79,7 @@ select {
 }
 
 #pellaward {
-    width: 6.8rem;
+    width: 9rem;
 
     &::placeholder {
         color: $darkgrey;
@@ -243,7 +243,7 @@ select {
 
 #buttons {
     padding-top: 20px;
-    padding-left: 1rem;
+    //padding-left: 1rem;
 }
 
 p.yourCourses {
@@ -304,6 +304,10 @@ p.yourCourses {
     max-width: 800px !important;
     line-height: 1.3rem;
     font-size: .9rem;
+}
+
+.tuition-calc-header {
+    padding-bottom: 20px;
 }
 
 
