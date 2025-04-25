@@ -86,12 +86,20 @@ select {
     }
 }
 
-
+#find-info {
+    font-size: .9rem;
+    color: $black;
+    padding-left: 1.5rem;
+    margin-top: .5rem;
+    margin-bottom: 0rem;
+}
 
 #validity {
     font-size: small;
     color: $black;
     padding-left: 1rem;
+    display: inline-block;
+    
 }
 
 .ico-times {
@@ -272,11 +280,13 @@ p.yourCourses {
     padding-left: 1.5em;
 }
 
+/*
 #max-award {
     max-width: 800px;
     padding-left: 1.5em;
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 }
+    */
 
 #summer-award {
     max-width: 800px;
@@ -298,7 +308,7 @@ p.yourCourses {
 
 #access-note,
 #max-note {
-    padding-top: 4.5rem;
+    padding-top: 5rem;
     padding-bottom: 1.25rem;
     padding-left: 1rem;
     max-width: 800px !important;

@@ -143,6 +143,29 @@
 			e.target.value = e.target.value.replace( /[^0-9]/g, '' );
 		} );
 
+		inputAward.addEventListener( 'change', validateValue);
+		inputAward.addEventListener( 'blur', validateValue);
+
+		function validateValue () {
+			const value = parseInt( inputAward.value, 10 );
+
+			if ( isNaN( value ) ) {
+				validity.textContent = 'Please enter a number between 370 and 3697.';
+				inputAward.classList.add( 'error' );
+				awardAmount = null;
+			} else if ( value < 370 || value > 3697 ) {
+				validity.textContent = 'Number must be between 370 and 3697.';
+				inputAward.value = '';
+				inputAward.classList.add( 'error' );
+				awardAmount = null;
+			} else {
+				validity.textContent = '';
+				inputAward.classList.remove( 'error' );
+				awardAmount = value;
+				console.log (awardAmount);
+			}
+		}
+/*
 		inputAward.addEventListener( 'blur', () => {
 			const value = parseInt( inputAward.value, 10 );
 
@@ -162,6 +185,7 @@
 				console.log (awardAmount);
 			}
 		} );
+		*/
 	}
 
 	function calculateCostPG( data ) {
@@ -288,7 +312,7 @@
 
 			document.getElementById( 'summer-credit-total' ).textContent = 'Summer Credits: ' + summerCredits;
 
-			document.getElementById( 'max-award' ).textContent = 'Estimated Maximum Federal Pell Grant Eligibility: $' + springAwardAmount.toLocaleString() + '.00 *';
+			//document.getElementById( 'max-award' ).textContent = 'Estimated Maximum Federal Pell Grant Eligibility: $' + springAwardAmount.toLocaleString() + '.00 *';
 
 			//create total array
 			const totalArray = [ techFee, courseFee, registrationFee ];
@@ -311,8 +335,7 @@
 			document.getElementById( 'tuition-total' ).style.display = 'block';
 			document.getElementById( 'tuition-total' ).textContent = 'Tuition and Fees Subtotal: $' + totalCost.toLocaleString() + '.00';
 			//Display Pell Award
-			document.getElementById( 'max-note' ).textContent = '*If taking 12 or more credits for the summer semester.';
-			//document.getElementById( 'max-note' ).textContent = '*Estimated Summer Federal Pell Grant eligibility if taking 12+ summer credits: $' + springAwardAmount.toLocaleString() + '.00';
+			document.getElementById( 'max-note' ).textContent = '*Estimated Summer Federal Pell Grant eligibility if taking 12+ summer credits: $' + springAwardAmount.toLocaleString() + '.00';
 			document.getElementById( 'summer-award' ).textContent = 'Estimated Federal Pell Grant Award for ' + summerCredits + ' Summer Credit(s): $' + estimatedSummerPellAward.toLocaleString() + '.00';
 			document.getElementById( 'new-total' ).textContent = 'Estimated Summer Semester Cost: $' + totalWithPG.toLocaleString() + '.00';
 
