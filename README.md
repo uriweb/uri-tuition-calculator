@@ -2,8 +2,8 @@
 
 The URI Tuition Calculator brings in tuition and fee data for courses via a Google spreadsheet and calculates an estimated cost.
 
-## What's New in 1.4.2 
-This release aims to fix an error with Papaparse.  
+## What's New in 1.5.0 
+This release adds dismissals to the additional course dropdowns, and adds a text input for the Pell Grant Calculator.   
 
 ## Shortcode Parameters 
 
@@ -45,5 +45,5 @@ ex: `[tuition-calculator calc_name="summer" spreadsheet="https://docs.google.com
 Contributors: Brandon Fuller, Alexandra Gauss, Sarah Pucino
 Tags: plugins  
 Requires at least: 6.0  
-Tested up to: 6.7  
-Stable tag: 1.4.2
+Tested up to: 6.7.2  
+Stable tag: 1.5.0
