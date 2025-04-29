@@ -52,6 +52,21 @@
 			}
 		} );
 
+		// Cancel additional course dropdwons functionality
+		const cancelCourse = document.querySelectorAll( '.ico-times' );
+
+		cancelCourse.forEach( ( exIcon ) => {
+			exIcon.addEventListener( 'click', () => {
+			//Get select dropdown
+				const selectBefore = exIcon.previousElementSibling;
+				//Clear select value
+				selectBefore.innerHTML = selectOptions + options;
+				//Get div
+				const courseDiv = exIcon.parentNode;
+				courseDiv.style.display = 'none';
+			} );
+		} );
+
 		//Calculate cost when button is clicked
 		document.getElementById( 'calc' ).addEventListener( 'click', checkFirstJTerm );
 

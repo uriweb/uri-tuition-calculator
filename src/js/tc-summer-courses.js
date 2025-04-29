@@ -51,6 +51,21 @@
 			}
 		} );
 
+		// Cancel additional course dropdwons functionality
+		const cancelCourse = document.querySelectorAll( '.ico-times' );
+
+		cancelCourse.forEach( ( exIcon ) => {
+			exIcon.addEventListener( 'click', () => {
+			//Get select dropdown
+				const selectBefore = exIcon.previousElementSibling;
+				//Clear select value
+				selectBefore.innerHTML = selectOptions + options;
+				//Get div
+				const courseDiv = exIcon.parentNode;
+				courseDiv.style.display = 'none';
+			} );
+		} );
+
 		// Reveal 2nd radio question if first is checked
 		document.getElementById( 'q2' ).addEventListener( 'change', function() {
 			document.getElementById( 'q3' ).style.display = 'block';
