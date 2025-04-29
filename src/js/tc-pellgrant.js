@@ -36,9 +36,26 @@
 			document.getElementById( dropDownIds[ i ] ).innerHTML = selectOptions + options;
 		}
 
+
+		// Cancel additional course dropdwons functionality
+		const cancelCourse = document.querySelectorAll( '.ico-times' );
+
+		cancelCourse.forEach( ( exIcon ) => {
+			exIcon.addEventListener( 'click', () => {
+			//Get select dropdown
+				const selectBefore = exIcon.previousElementSibling;
+				//Clear select value
+				selectBefore.innerHTML = selectOptions + options;
+				//Get div
+				const courseDiv = exIcon.parentNode;
+				courseDiv.style.display = 'none';
+			} );
+		} );
+
 		//Populate other dropdowns
 		creditDropdown();
-		awardDropdown();
+		//awardDropdown();
+		awardValidation();
 
 		//functionality to add another course
 		document.getElementById( 'addCourse' ).addEventListener( 'click', addCoursesPellGrant );
@@ -48,7 +65,7 @@
 
 		//Make sure residency status is checked
 		function checkFirstPG() {
-			const allSelectIds = [ 'resi', 'p-award', 'c-amount', 'courseNumber' ];
+			const allSelectIds = [ 'resi', 'c-amount', 'courseNumber', 'pellaward' ];
 
 			checkDisabledSelects();
 
@@ -90,7 +107,7 @@
 		lastOption.text = '12 or more';
 		creditOptions.add( lastOption );
 	}
-
+/*
 	function awardDropdown() {
 		const awardOptions = document.getElementById( 'p-award' );
 
@@ -101,6 +118,7 @@
 			awardOptions.add( option );
 		}
 	}
+		*/
 
 	function addCoursesPellGrant() {
 		if ( document.getElementById( 'courseoption3' ).style.display === 'block' ) {
@@ -111,6 +129,40 @@
 			document.getElementById( 'courseoption3' ).style.display = 'block';
 		} else {
 			document.getElementById( 'courseoption2' ).style.display = 'block';
+		}
+	}
+
+	function awardValidation() {
+		const inputAward = document.getElementById( 'pellaward' );
+		const validity = document.getElementById( 'validity' );
+
+		// Prevent non-numeric characters
+		inputAward.addEventListener( 'input', ( e ) => {
+			// Clean up any non-numeric characters
+			e.target.value = e.target.value.replace( /[^0-9]/g, '' );
+		} );
+
+		inputAward.addEventListener( 'change', validateValue);
+		inputAward.addEventListener( 'blur', validateValue);
+
+		function validateValue () {
+			const value = parseInt( inputAward.value, 10 );
+			//let awardAmount = null; //Variable to store the award amount
+
+			if ( isNaN( value ) ) {
+				validity.textContent = 'Please enter a number between 370 and 3697.';
+				inputAward.classList.add( 'error' );
+				//awardAmount = null;
+			} else if ( value < 370 || value > 3697 ) {
+				validity.textContent = 'Number must be between 370 and 3697.';
+				inputAward.value = '';
+				inputAward.classList.add( 'error' );
+				//awardAmount = null;
+			} else {
+				validity.textContent = '';
+				inputAward.classList.remove( 'error' );
+				//awardAmount = value;
+			}
 		}
 	}
 
@@ -167,7 +219,7 @@
 				summerCredits = 0;
 
 			const registrationFee = 30;
-			const pellAward = document.getElementById( 'p-award' ).value;
+			const pellAward = document.getElementById( 'pellaward' ).value;
 			//Cap spring credits at 12
 			const springCredits = Math.min( 12, document.getElementById( 'c-amount' ).value );
 
@@ -236,7 +288,7 @@
 
 			document.getElementById( 'summer-credit-total' ).textContent = 'Summer Credits: ' + summerCredits;
 
-			document.getElementById( 'max-award' ).textContent = 'Estimated Maximum Federal Pell Grant Eligibility: $' + springAwardAmount.toLocaleString() + '.00 *';
+			//document.getElementById( 'max-award' ).textContent = 'Estimated Maximum Federal Pell Grant Eligibility: $' + springAwardAmount.toLocaleString() + '.00 *';
 
 			//create total array
 			const totalArray = [ techFee, courseFee, registrationFee ];
@@ -259,8 +311,7 @@
 			document.getElementById( 'tuition-total' ).style.display = 'block';
 			document.getElementById( 'tuition-total' ).textContent = 'Tuition and Fees Subtotal: $' + totalCost.toLocaleString() + '.00';
 			//Display Pell Award
-			document.getElementById( 'max-note' ).textContent = '*If taking 12 or more credits for the summer semester.';
-			//document.getElementById( 'max-note' ).textContent = '*Estimated Summer Federal Pell Grant eligibility if taking 12+ summer credits: $' + springAwardAmount.toLocaleString() + '.00';
+			document.getElementById( 'max-note' ).textContent = '*If taking 12+ summer credits, estimated Summer Federal Pell Grant eligibility: $' + springAwardAmount.toLocaleString() + '.00';
 			document.getElementById( 'summer-award' ).textContent = 'Estimated Federal Pell Grant Award for ' + summerCredits + ' Summer Credit(s): $' + estimatedSummerPellAward.toLocaleString() + '.00';
 			document.getElementById( 'new-total' ).textContent = 'Estimated Summer Semester Cost: $' + totalWithPG.toLocaleString() + '.00';
 

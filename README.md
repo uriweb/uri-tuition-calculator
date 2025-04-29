@@ -17,10 +17,14 @@ default: "Tuition and Fees Calculator" \
 (Heading level 2) \
 ex: `[tuition-calculator calc_name="jterm" title="Estimated Winter J Term Tuition and Fees Calculator"]`
 
-### spreadsheet
-defualt: null \
-url of the spreadsheet \
-ex: `[tuition-calculator calc_name="summer" spreadsheet="https://docs.google.com/spreadsheets/d/[spreadsheetID]/gviz/tq?tqx=out:csv&sheet=[SheetName]"]`
+### spreadsheet_id
+ID of the spreadsheet \
+ex: `[tuition-calculator calc_name="summer" spreadsheet_id="[spreadsheetID]"]`
+
+### spreadsheet_name
+Sheet name \
+ex: `[tuition-calculator calc_name="summer" spreadsheet_id="[spreadsheetID]" sheet_name="[Sheet name]"]`
+
 
 ### semester 
 default: null \
