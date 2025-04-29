@@ -14,7 +14,7 @@
 
 		<div class="pellInput">
 			<label for="pellaward" id="pellInputaward">Federal Pell Grant Award for the Spring <?php print $attributes['semester'] ?> semester</label><br>
-			<p id="find-info">See instructions above on how to locate your Spring Pell award.</p>
+			<p id="find-info">See instructions above about how to locate your Spring Pell Grant Award.</p>
 			<input type="number" id="pellaward" inputmode="numeric" min="370" max="3697" minlength="3" maxlength="4" placeholder="Select amount">
 			<p id="validity"></p>
 		</div>
