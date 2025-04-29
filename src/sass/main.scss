@@ -320,6 +320,10 @@ p.yourCourses {
     padding-bottom: 20px;
 }
 
+#firstclass, #matriculating {
+    margin-right: .8rem;
+}
+
 
 
 @media (max-width: 1199.98px) {
@@ -342,6 +346,10 @@ p.yourCourses {
 
     .calculations p {
         padding-left: 1.5rem;
+    }
+
+    #firstclass, #matriculating {
+        margin-right: .8rem;
     }
 
 
