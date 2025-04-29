@@ -135,7 +135,6 @@
 	function awardValidation() {
 		const inputAward = document.getElementById( 'pellaward' );
 		const validity = document.getElementById( 'validity' );
-		let awardAmount = null; //Variable to store the award amount
 
 		// Prevent non-numeric characters
 		inputAward.addEventListener( 'input', ( e ) => {
@@ -148,44 +147,23 @@
 
 		function validateValue () {
 			const value = parseInt( inputAward.value, 10 );
+			//let awardAmount = null; //Variable to store the award amount
 
 			if ( isNaN( value ) ) {
 				validity.textContent = 'Please enter a number between 370 and 3697.';
 				inputAward.classList.add( 'error' );
-				awardAmount = null;
+				//awardAmount = null;
 			} else if ( value < 370 || value > 3697 ) {
 				validity.textContent = 'Number must be between 370 and 3697.';
 				inputAward.value = '';
 				inputAward.classList.add( 'error' );
-				awardAmount = null;
+				//awardAmount = null;
 			} else {
 				validity.textContent = '';
 				inputAward.classList.remove( 'error' );
-				awardAmount = value;
-				console.log (awardAmount);
+				//awardAmount = value;
 			}
 		}
-/*
-		inputAward.addEventListener( 'blur', () => {
-			const value = parseInt( inputAward.value, 10 );
-
-			if ( isNaN( value ) ) {
-				validity.textContent = 'Please enter a valid number.';
-				inputAward.classList.add( 'error' );
-				awardAmount = null;
-			} else if ( value < 370 || value > 3697 ) {
-				validity.textContent = 'Number must be between 370 and 3697.';
-				inputAward.value = '';
-				inputAward.classList.add( 'error' );
-				awardAmount = null;
-			} else {
-				validity.textContent = '';
-				inputAward.classList.remove( 'error' );
-				awardAmount = value;
-				console.log (awardAmount);
-			}
-		} );
-		*/
 	}
 
 	function calculateCostPG( data ) {
@@ -194,8 +172,6 @@
 		const dropDownValues = [ courseNumber.value, courseNumber2.value, courseNumber3.value, courseNumber4.value ];
 		//Set empty array to collect selected course cost data
 		const courseDataSet = [];
-		const pellGrantInput = document.getElementById( 'pellaward' ).value;
-		console.log(pellGrantInput);
 
 		//hook up analytics
 		const e = {
